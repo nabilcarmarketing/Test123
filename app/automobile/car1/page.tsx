@@ -17,6 +17,7 @@ export default function Car1Page() {
     "/cars/car1/car1.12.avif",
   ];
 
+  const [showMore, setShowMore] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -168,30 +169,64 @@ export default function Car1Page() {
             </div>
           </div>
 
-          <section className="mt-12 md:mt-16 bg-white rounded-3xl shadow-lg border border-gray-100 p-6 md:p-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-black">
-              Ausstattung & Beschreibung
-            </h2>
 
-            <p className="text-gray-600 mt-5 md:mt-6 text-base md:text-lg leading-relaxed">
-              Gepflegter Ford Kuga ST-Line mit Automatikgetriebe, guter
-              Ausstattung und zuverlässigem Dieselantrieb. Das Fahrzeug ist
-              geprüft, sofort verfügbar und eignet sich ideal als Familien-
-              oder Alltagsfahrzeug.
-            </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mt-8 md:mt-10 text-gray-700">
-              <p>• Navigationssystem</p>
-              <p>• Rückfahrkamera</p>
-              <p>• Sitzheizung</p>
-              <p>• Tempomat</p>
-              <p>• Einparkhilfe</p>
-              <p>• Alufelgen</p>
-              <p>• Klimaautomatik</p>
-              <p>• Bluetooth / Freisprecheinrichtung</p>
-            </div>
-          </section>
-        </div>
+<section className="mt-12 md:mt-16 bg-white rounded-3xl shadow-lg border border-gray-100 p-6 md:p-10">
+  <h2 className="text-2xl md:text-3xl font-bold text-black">
+    Ausstattung & Beschreibung
+  </h2>
+
+  <p className="text-gray-600 mt-5 md:mt-6 text-base md:text-lg leading-relaxed">
+    Gepflegter Ford Kuga ST-Line mit Automatikgetriebe, Allradantrieb und sehr
+    guter Ausstattung. Das Fahrzeug ist technisch in gutem Zustand, geprüft und
+    sofort verfügbar. Ideal als Familien-, Alltags- oder Langstreckenfahrzeug.
+  </p>
+
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mt-8 md:mt-10 text-gray-700">
+    <p>• Navigationssystem</p>
+    <p>• Rückfahrkamera / Einparkhilfe hinten</p>
+    <p>• Sitzheizung vorne</p>
+    <p>• Tempomat</p>
+    <p>• Klimaautomatik (2-Zonen)</p>
+    <p>• Allradantrieb</p>
+    <p>• Sportsitze</p>
+    <p>• Alufelgen</p>
+    <p>• Dachreling</p>
+    <p>• Bluetooth / Ford SYNC</p>
+
+    {showMore && (
+      <>
+        <p>• ABS / ESP / ASR</p>
+        <p>• ISOFIX Kindersitzbefestigung</p>
+        <p>• Lederlenkrad + Schaltwippen</p>
+        <p>• Multifunktionslenkrad</p>
+        <p>• Elektrische Fensterheber</p>
+        <p>• Elektrische & beheizbare Außenspiegel</p>
+        <p>• Keyless Zentralverriegelung</p>
+        <p>• Park-Assistent (Active Park Assist)</p>
+        <p>• Berganfahr-Assistent</p>
+        <p>• Notbrems-Assistent</p>
+        <p>• Start/Stopp-Automatik</p>
+        <p>• Winterpaket</p>
+        <p>• Nebelscheinwerfer</p>
+        <p>• Tagfahrlicht</p>
+        <p>• Anhängerkupplung Vorbereitung</p>
+        <p>• Anhängelast gebremst: 2.100 kg</p>
+        <p>• Euro 6 / Umweltplakette Grün</p>
+        <p>• HU Neu</p>
+      </>
+    )}
+  </div>
+
+  <div className="mt-10">
+    <button
+      onClick={() => setShowMore(!showMore)}
+      className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-xl font-semibold transition"
+    >
+      {showMore ? "Weniger anzeigen" : "Mehr Informationen"}
+    </button>
+  </div>
+</section>
 
         <footer className="bg-gray-100 border-t border-gray-200 py-16 md:py-20 px-4 md:px-6 mt-20 md:mt-24">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
