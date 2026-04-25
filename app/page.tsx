@@ -173,13 +173,13 @@ export default function Home() {
 
     <div className="mt-16 bg-gray-900 text-white rounded-3xl p-10">
       <h3 className="text-3xl font-bold">
-        Verwurzelt in Nordhorn – mehr als nur Fahrzeughandel
+        Verwurzelt in Nordhorn - mehr als nur Fahrzeughandel
       </h3>
 
       <p className="text-gray-300 mt-6 text-lg leading-relaxed max-w-4xl">
         Neben dem Fahrzeughandel engagieren wir uns seit Jahren aktiv
         in der Region und unterstützen verschiedene Vereine und den
-        lokalen Sport – unter anderem durch Sponsoring von Vereinen wie
+        lokalen Sport - unter anderem durch Sponsoring von Vereinen wie
         dem VfL Nordhorn, SV Schwefingen und Volleyballvereinen aus Uelsen.
         Für uns bedeutet Geschäft nicht nur Verkauf, sondern langfristige
         Beziehungen, Vertrauen und Verantwortung vor Ort.
@@ -200,7 +200,7 @@ export default function Home() {
     </h2>
 
     <p className="text-gray-600 mt-6 max-w-3xl text-lg leading-relaxed">
-      Entdecken Sie unsere geprüften und gepflegten Fahrzeuge – 
+      Entdecken Sie unsere geprüften und gepflegten Fahrzeuge - 
       sofort verfügbar und fair angeboten. Von zuverlässigen Alltagsfahrzeugen über 
       Familienautos bis hin zu Kombis, SUVs und ausgewählten Fahrzeugen für jeden Bedarf.
     </p>
