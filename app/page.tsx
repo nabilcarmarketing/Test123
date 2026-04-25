@@ -252,7 +252,7 @@ export default function Home() {
 
 
 {/* Fahrzeuge */}
-<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mt-14">
+<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mt-14 items-start">
   {[
     {
       name: "Ford Kuga ST-Line",
