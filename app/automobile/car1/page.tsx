@@ -17,9 +17,9 @@ export default function Car1Page() {
     "/cars/car1/car1.12.avif",
   ];
 
-  const [showMore, setShowMore] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  const [showMore, setShowMore] = useState(false);
 
   const prevImage = () => {
     setCurrentImage((prev) => (prev === 0 ? images.length - 1 : prev - 1));
@@ -83,21 +83,24 @@ export default function Car1Page() {
                   />
 
                   <button
-  onClick={prevImage}
-  className="absolute left-4 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-white/90 hover:bg-white text-black shadow-lg flex items-center justify-center text-3xl font-bold transition opacity-100 lg:opacity-0 lg:group-hover:opacity-100 z-20"
-  aria-label="Vorheriges Bild"
->
-  ‹
-</button>
+                    type="button"
+                    onClick={prevImage}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-white/90 hover:bg-white text-black shadow-lg flex items-center justify-center text-3xl font-bold transition opacity-100 lg:opacity-0 lg:group-hover:opacity-100 z-20"
+                    aria-label="Vorheriges Bild"
+                  >
+                    ‹
+                  </button>
 
-<button
-  onClick={nextImage}
-  className="absolute right-4 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-white/90 hover:bg-white text-black shadow-lg flex items-center justify-center text-3xl font-bold transition opacity-100 lg:opacity-0 lg:group-hover:opacity-100 z-20"
-  aria-label="Nächstes Bild"
->
-  ›
-</button>
-</div>
+                  <button
+                    type="button"
+                    onClick={nextImage}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-white/90 hover:bg-white text-black shadow-lg flex items-center justify-center text-3xl font-bold transition opacity-100 lg:opacity-0 lg:group-hover:opacity-100 z-20"
+                    aria-label="Nächstes Bild"
+                  >
+                    ›
+                  </button>
+                </div>
+
                 <div className="grid grid-cols-5 gap-3 p-3 md:p-4">
                   {images.map((image, index) => (
                     <button
@@ -161,7 +164,7 @@ export default function Car1Page() {
                   href="https://home.mobile.de/home/vip?sb=p&od=down&customerId=468257&vc=Car&ref=srp&searchId=740b3c4a-f995-b91d-b4c9-0a0725a692f7&id=441291645"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 block border border-gray-300 hover:border-red-600 transition text-center px-6 py-4 rounded-xl font-semibold text-black rounded-xl"
+                  className="mt-4 block border border-gray-300 hover:border-red-600 transition text-center px-6 py-4 rounded-xl font-semibold text-black"
                 >
                   Auf mobile.de ansehen
                 </a>
@@ -169,71 +172,70 @@ export default function Car1Page() {
             </div>
           </div>
 
+          <section className="mt-12 md:mt-16 bg-white rounded-3xl shadow-lg border border-gray-100 p-6 md:p-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-black">
+              Ausstattung & Beschreibung
+            </h2>
 
+            <p className="text-gray-600 mt-5 md:mt-6 text-base md:text-lg leading-relaxed">
+              Gepflegter Ford Kuga ST-Line mit Automatikgetriebe, Allradantrieb
+              und sehr guter Ausstattung. Das Fahrzeug ist technisch in gutem
+              Zustand, geprüft und sofort verfügbar. Ideal als Familien-,
+              Alltags- oder Langstreckenfahrzeug.
+            </p>
 
-<section className="mt-12 md:mt-16 bg-white rounded-3xl shadow-lg border border-gray-100 p-6 md:p-10">
-  <h2 className="text-2xl md:text-3xl font-bold text-black">
-    Ausstattung & Beschreibung
-  </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mt-8 md:mt-10 text-gray-700">
+              <p>• Navigationssystem</p>
+              <p>• Rückfahrkamera / Einparkhilfe hinten</p>
+              <p>• Sitzheizung vorne</p>
+              <p>• Tempomat</p>
+              <p>• Klimaautomatik (2-Zonen)</p>
+              <p>• Allradantrieb</p>
+              <p>• Sportsitze</p>
+              <p>• Alufelgen</p>
+              <p>• Dachreling</p>
+              <p>• Bluetooth / Ford SYNC</p>
 
-  <p className="text-gray-600 mt-5 md:mt-6 text-base md:text-lg leading-relaxed">
-    Gepflegter Ford Kuga ST-Line mit Automatikgetriebe, Allradantrieb und sehr
-    guter Ausstattung. Das Fahrzeug ist technisch in gutem Zustand, geprüft und
-    sofort verfügbar. Ideal als Familien-, Alltags- oder Langstreckenfahrzeug.
-  </p>
+              {showMore && (
+                <>
+                  <p>• ABS / ESP / ASR</p>
+                  <p>• ISOFIX Kindersitzbefestigung</p>
+                  <p>• Lederlenkrad + Schaltwippen</p>
+                  <p>• Multifunktionslenkrad</p>
+                  <p>• Elektrische Fensterheber</p>
+                  <p>• Elektrische & beheizbare Außenspiegel</p>
+                  <p>• Keyless Zentralverriegelung</p>
+                  <p>• Park-Assistent (Active Park Assist)</p>
+                  <p>• Berganfahr-Assistent</p>
+                  <p>• Notbrems-Assistent</p>
+                  <p>• Start/Stopp-Automatik</p>
+                  <p>• Winterpaket</p>
+                  <p>• Nebelscheinwerfer</p>
+                  <p>• Tagfahrlicht</p>
+                  <p>• Anhängerkupplung Vorbereitung</p>
+                  <p>• Anhängelast gebremst: 2.100 kg</p>
+                  <p>• Euro 6 / Umweltplakette Grün</p>
+                  <p>• HU Neu</p>
+                </>
+              )}
+            </div>
 
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mt-8 md:mt-10 text-gray-700">
-    <p>• Navigationssystem</p>
-    <p>• Rückfahrkamera / Einparkhilfe hinten</p>
-    <p>• Sitzheizung vorne</p>
-    <p>• Tempomat</p>
-    <p>• Klimaautomatik (2-Zonen)</p>
-    <p>• Allradantrieb</p>
-    <p>• Sportsitze</p>
-    <p>• Alufelgen</p>
-    <p>• Dachreling</p>
-    <p>• Bluetooth / Ford SYNC</p>
-
-    {showMore && (
-      <>
-        <p>• ABS / ESP / ASR</p>
-        <p>• ISOFIX Kindersitzbefestigung</p>
-        <p>• Lederlenkrad + Schaltwippen</p>
-        <p>• Multifunktionslenkrad</p>
-        <p>• Elektrische Fensterheber</p>
-        <p>• Elektrische & beheizbare Außenspiegel</p>
-        <p>• Keyless Zentralverriegelung</p>
-        <p>• Park-Assistent (Active Park Assist)</p>
-        <p>• Berganfahr-Assistent</p>
-        <p>• Notbrems-Assistent</p>
-        <p>• Start/Stopp-Automatik</p>
-        <p>• Winterpaket</p>
-        <p>• Nebelscheinwerfer</p>
-        <p>• Tagfahrlicht</p>
-        <p>• Anhängerkupplung Vorbereitung</p>
-        <p>• Anhängelast gebremst: 2.100 kg</p>
-        <p>• Euro 6 / Umweltplakette Grün</p>
-        <p>• HU Neu</p>
-      </>
-    )}
-  </div>
-
-  <div className="mt-10">
-    <button
-      onClick={() => setShowMore(!showMore)}
-      className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-xl font-semibold transition"
-    >
-      {showMore ? "Weniger anzeigen" : "Mehr Informationen"}
-    </button>
-  </div>
-</section>
+            <div className="mt-10">
+              <button
+                type="button"
+                onClick={() => setShowMore(!showMore)}
+                className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-xl font-semibold transition"
+              >
+                {showMore ? "Weniger anzeigen" : "Mehr Informationen"}
+              </button>
+            </div>
+          </section>
+        </div>
 
         <footer className="bg-gray-100 border-t border-gray-200 py-16 md:py-20 px-4 md:px-6 mt-20 md:mt-24">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
             <div>
-              <h3 className="text-2xl font-bold text-red-600 mb-5">
-                Adresse
-              </h3>
+              <h3 className="text-2xl font-bold text-red-600 mb-5">Adresse</h3>
               <p className="text-gray-700 leading-relaxed">
                 Nabil Car Nordhorn
                 <br />
@@ -244,9 +246,7 @@ export default function Car1Page() {
             </div>
 
             <div>
-              <h3 className="text-2xl font-bold text-red-600 mb-5">
-                Telefon
-              </h3>
+              <h3 className="text-2xl font-bold text-red-600 mb-5">Telefon</h3>
               <p className="text-gray-700 leading-relaxed">
                 Tel.: +49 1520 3799152
                 <br />
@@ -296,14 +296,16 @@ export default function Car1Page() {
       {isOpen && (
         <div className="fixed inset-0 z-[999] bg-black/95 flex items-center justify-center">
           <button
+            type="button"
             onClick={() => setIsOpen(false)}
             className="absolute top-5 right-5 md:top-6 md:right-6 text-white text-4xl font-bold"
             aria-label="Schließen"
           >
-            x
+            ×
           </button>
 
           <button
+            type="button"
             onClick={prevImage}
             className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 bg-white/85 hover:bg-white text-black w-12 h-12 md:w-14 md:h-14 rounded-full shadow-lg flex items-center justify-center text-2xl font-bold transition"
             aria-label="Vorheriges Bild"
@@ -318,6 +320,7 @@ export default function Car1Page() {
           />
 
           <button
+            type="button"
             onClick={nextImage}
             className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 bg-white/85 hover:bg-white text-black w-12 h-12 md:w-14 md:h-14 rounded-full shadow-lg flex items-center justify-center text-2xl font-bold transition"
             aria-label="Nächstes Bild"
