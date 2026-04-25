@@ -118,7 +118,7 @@ export default function Car1Page() {
                 </div>
 
                 <a
-                  href="tel:+4915256008836"
+                  href="tel:+4915203799152"
                   className="mt-10 block bg-red-600 hover:bg-red-700 transition text-white text-center px-6 py-4 rounded-xl font-semibold"
                 >
                   Direkt anfragen

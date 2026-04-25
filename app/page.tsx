@@ -75,7 +75,7 @@ export default function Home() {
   />
 
   <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 w-full text-white">
-    <p className="uppercase tracking-[0.25em] md:tracking-[0.35em] text-red-400 text-xs md:text-sm font-medium">
+    <p className="uppercase tracking-[0.25em] md:tracking-[0.35em] text-red-500 text-xs md:text-sm font-medium">
       Nabil Car Nordhorn
     </p>
 
@@ -89,7 +89,7 @@ export default function Home() {
 
     <p className="text-base sm:text-lg md:text-xl text-gray-200 mt-6 md:mt-8 max-w-2xl leading-relaxed">
       Gebrauchtwagen, Premium Reifensätze, Alufelgen &
-      Kompletträder zu fairen Preisen – mit Büro,
+      Kompletträder zu fairen Preisen - mit Büro,
       Fahrzeugbestand und persönlicher Beratung direkt
       in Nordhorn.
     </p>
@@ -232,13 +232,13 @@ export default function Home() {
 
     <div className="mt-14 md:mt-16 bg-gray-900 text-white rounded-3xl p-6 md:p-10">
       <h3 className="text-2xl md:text-3xl font-bold leading-tight">
-        Verwurzelt in Nordhorn – mehr als nur Fahrzeughandel
+        Verwurzelt in Nordhorn - mehr als nur Fahrzeughandel
       </h3>
 
       <p className="text-gray-300 mt-5 md:mt-6 text-base md:text-lg leading-relaxed max-w-4xl">
         Neben dem Fahrzeughandel engagieren wir uns seit Jahren aktiv
         in der Region und unterstützen verschiedene Vereine und den
-        lokalen Sport – unter anderem durch Sponsoring von Vereinen wie
+        lokalen Sport - unter anderem durch Sponsoring von Vereinen wie
         dem VfL Nordhorn, SV Schwefingen und Volleyballvereinen aus Uelsen.
         Für uns bedeutet Geschäft nicht nur Verkauf, sondern langfristige
         Beziehungen, Vertrauen und Verantwortung vor Ort.
@@ -422,7 +422,7 @@ export default function Home() {
         Fax: +49 5921 784642
         <br />
         <br />
-        Mo - Fr: 09:00 – 18:00 Uhr
+        Mo - Fr: 09:00 - 18:00 Uhr
       </p>
     </div>
 
