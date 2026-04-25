@@ -83,20 +83,7 @@ export default function Car1Page() {
 
                   <button
   onClick={prevImage}
-  className="absolute left-4 top-1/2 -translate-y-1/2
-             w-14 h-14
-             rounded-full
-             bg-white/90
-             hover:bg-white
-             text-black
-             shadow-lg
-             flex items-center justify-center
-             text-3xl
-             font-bold
-             transition
-             opacity-0
-             lg:group-hover:opacity-100
-             z-20"
+  className="absolute left-4 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-white/90 hover:bg-white text-black shadow-lg flex items-center justify-center text-3xl font-bold transition opacity-100 lg:opacity-0 lg:group-hover:opacity-100 z-20"
   aria-label="Vorheriges Bild"
 >
   ‹
@@ -104,25 +91,12 @@ export default function Car1Page() {
 
 <button
   onClick={nextImage}
-  className="absolute right-4 top-1/2 -translate-y-1/2
-             w-14 h-14
-             rounded-full
-             bg-white/90
-             hover:bg-white
-             text-black
-             shadow-lg
-             flex items-center justify-center
-             text-3xl
-             font-bold
-             transition
-             opacity-0
-             lg:group-hover:opacity-100
-             z-20"
+  className="absolute right-4 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-white/90 hover:bg-white text-black shadow-lg flex items-center justify-center text-3xl font-bold transition opacity-100 lg:opacity-0 lg:group-hover:opacity-100 z-20"
   aria-label="Nächstes Bild"
 >
   ›
 </button>
-
+</div>
                 <div className="grid grid-cols-5 gap-3 p-3 md:p-4">
                   {images.map((image, index) => (
                     <button
