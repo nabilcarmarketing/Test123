@@ -299,7 +299,7 @@ export default function Home() {
   ].map((car) => (
     <div
       key={car.name}
-      className="bg-white rounded-3xl border border-gray-100 shadow-lg overflow-hidden hover:shadow-xl transition"
+      className="bg-white rounded-3xl border border-gray-100 shadow-lg overflow-hidden hover:shadow-xl transition h-fit"
     >
       <img
         src={car.image}
