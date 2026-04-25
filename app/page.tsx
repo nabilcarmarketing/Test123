@@ -45,7 +45,7 @@ export default function Home() {
             className="absolute inset-0 bg-cover bg-center"
              style={{
                       backgroundImage:
-                     "linear-gradient(to right, rgba(0,0,0,0.72), rgba(0,0,0,0.25)), url('/images/header.png')",
+                     "linear-gradient(to right, rgba(0,0,0,0.72), rgba(0,0,0,0.25)), url('/images/Header.png')",
                     }}
         />
 
