@@ -82,12 +82,20 @@ export default function Car1Page() {
                   />
 
                   <button
-                    onClick={prevImage}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-black w-12 h-12 md:w-14 md:h-14 rounded-full shadow-lg flex items-center justify-center text-2xl font-bold transition opacity-100 lg:opacity-0 lg:group-hover:opacity-100"
-                    aria-label="Vorheriges Bild"
-                  >
-                    ←
-                  </button>
+                      onClick={prevImage}
+                      className="absolute left-4 top-1/2 -translate-y-1/2
+                      w-14 h-14
+                     rounded-full
+                     bg-black/60
+                     hover:bg-black/80
+                     backdrop-blur-sm
+                     flex items-center justify-center
+                     text-white text-3xl
+                     transition
+                     z-20"
+>
+  ‹
+</button>
 
                   <button
                     onClick={nextImage}
@@ -223,7 +231,7 @@ export default function Car1Page() {
                 Fax: +49 5921 784642
                 <br />
                 <br />
-                Mo - Fr: 09:00 – 18:00 Uhr
+                Mo - Fr: 09:00 - 18:00 Uhr
               </p>
             </div>
 
@@ -266,7 +274,7 @@ export default function Car1Page() {
             className="absolute top-5 right-5 md:top-6 md:right-6 text-white text-4xl font-bold"
             aria-label="Schließen"
           >
-            ×
+            x
           </button>
 
           <button
