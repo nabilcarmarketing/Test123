@@ -133,7 +133,7 @@ export default function Home() {
     </h2>
 
     <p className="text-gray-600 mt-8 max-w-4xl text-lg leading-relaxed">
-      Seit über 24 Jahren steht Nabil Car in Nordhorn für zuverlässigen
+      Seit über 25 Jahren steht Nabil Car in Nordhorn für zuverlässigen
       Gebrauchtwagenhandel, Premium-Reifensätze und persönliche Beratung.
       Als familiengeführter Betrieb legen wir Wert auf faire Preise,
       ehrliche Beratung und langfristige Kundenzufriedenheit.
@@ -143,7 +143,7 @@ export default function Home() {
 
     <div className="grid md:grid-cols-4 gap-6 mt-14">
       <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100 shadow-sm">
-        <h3 className="text-3xl font-bold text-red-600">24+</h3>
+        <h3 className="text-3xl font-bold text-red-600">25+</h3>
         <p className="text-gray-700 mt-3 font-medium">
           Jahre Erfahrung auf mobile.de und im Fahrzeughandel
         </p>
