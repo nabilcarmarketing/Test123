@@ -251,8 +251,8 @@ export default function Home() {
 
 
 
-
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 md:mt-14">
+{/* Fahrzeuge */}
+<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mt-14">
   {[
     {
       name: "Ford Kuga ST-Line",
@@ -299,30 +299,30 @@ export default function Home() {
   ].map((car) => (
     <div
       key={car.name}
-      className="bg-white rounded-3xl border border-gray-100 shadow-lg overflow-hidden"
+      className="bg-white rounded-3xl border border-gray-100 shadow-lg overflow-hidden hover:shadow-xl transition"
     >
       <img
         src={car.image}
         alt={car.name}
-        className="w-full h-52 md:h-56 object-cover"
+        className="w-full h-64 md:h-72 object-cover"
       />
 
-      <div className="p-6 md:p-8">
-        <h3 className="text-xl md:text-2xl font-bold leading-tight">
+      <div className="p-8">
+        <h3 className="text-2xl font-bold leading-tight">
           {car.name}
         </h3>
 
-        <p className="text-gray-600 mt-3 text-sm md:text-base leading-relaxed">
+        <p className="text-gray-600 mt-3 text-base leading-relaxed">
           {car.details}
         </p>
 
-        <p className="text-red-600 text-xl md:text-2xl font-bold mt-5">
+        <p className="text-red-600 text-2xl font-bold mt-5">
           {car.price}
         </p>
 
         <a
           href={car.link}
-          className="mt-6 inline-block w-full sm:w-auto text-center bg-red-600 hover:bg-red-700 transition text-white px-6 py-3 rounded-xl font-semibold"
+          className="mt-6 inline-block bg-red-600 hover:bg-red-700 transition text-white px-6 py-3 rounded-xl font-semibold"
         >
           Mehr erfahren
         </a>
