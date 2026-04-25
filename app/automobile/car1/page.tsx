@@ -52,53 +52,75 @@ export default function Car1Page() {
       <main className="min-h-screen bg-gray-50 px-6 py-16">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-3 gap-10">
-            <div className="lg:col-span-2">
-              <div className="bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 relative">
-                <img
-                  src={images[currentImage]}
-                  alt="Ford Kuga"
-                  className="w-full h-[520px] object-cover"
-                />
+<div className="lg:col-span-2">
+  <div className="bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100 relative">
+    
+    <img
+      src={images[currentImage]}
+      alt="Ford Kuga"
+      className="w-full h-[520px] object-cover"
+    />
 
-<button
-  onClick={() =>
-    setCurrentImage(
-      currentImage === 0
-        ? images.length - 1
-        : currentImage - 1
-    )
-  }
-  className="absolute left-6 top-1/3 -translate-y-1/2 bg-white/60 text-black hover:bg-gray-800 w-25 h-14 rounded-full shadow-lg flex items-center justify-center text-2xl font-bold"
->
-  Zurück
-</button>
+    {/* Linker Pfeil */}
+    <button
+      onClick={() =>
+        setCurrentImage(
+          currentImage === 0
+            ? images.length - 1
+            : currentImage - 1
+        )
+      }
+      className="absolute left-4 top-1/2 -translate-y-1/2 
+                 bg-white/80 hover:bg-white
+                 text-black
+                 w-12 h-12 md:w-14 md:h-14
+                 rounded-full
+                 shadow-lg
+                 flex items-center justify-center
+                 text-2xl font-bold
+                 transition"
+    >
+      ←
+    </button>
 
-<button
-  onClick={() =>
-    setCurrentImage(
-      currentImage === images.length - 1
-        ? 0
-        : currentImage + 1
-    )
-  }
-  className="absolute right-6 top-1/3 -translate-y-1/2 bg-white/60 text-black hover:bg-gray-800 w-25 h-14 rounded-full shadow-lg flex items-center justify-center text-2xl font-bold"
->
-  Weiter
-</button>
+    {/* Rechter Pfeil */}
+    <button
+      onClick={() =>
+        setCurrentImage(
+          currentImage === images.length - 1
+            ? 0
+            : currentImage + 1
+        )
+      }
+      className="absolute right-4 top-1/2 -translate-y-1/2 
+                 bg-white/80 hover:bg-white
+                 text-black
+                 w-12 h-12 md:w-14 md:h-14
+                 rounded-full
+                 shadow-lg
+                 flex items-center justify-center
+                 text-2xl font-bold
+                 transition"
+    >
+      →
+    </button>
 
-                <div className="grid grid-cols-5 gap-3 p-4">
-                  {images.map((image, index) => (
-                    <img
-                      key={index}
-                      src={image}
-                      alt={`Ford Kuga Bild ${index + 1}`}
-                      onClick={() => setCurrentImage(index)}
-                      className="w-full h-24 object-cover rounded-xl border border-gray-200 cursor-pointer"
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
+    {/* Vorschaubilder */}
+    <div className="grid grid-cols-5 gap-3 p-4">
+      {images.map((image, index) => (
+        <img
+          key={index}
+          src={image}
+          alt={`Ford Kuga Bild ${index + 1}`}
+          onClick={() => setCurrentImage(index)}
+          className="w-full h-24 object-cover rounded-xl border border-gray-200 cursor-pointer"
+        />
+      ))}
+    </div>
+
+  </div>
+</div>
+
 
             <div>
               <div className="bg-white rounded-3xl shadow-lg border border-gray-100 p-8 sticky top-28">
