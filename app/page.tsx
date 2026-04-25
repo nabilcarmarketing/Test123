@@ -252,6 +252,7 @@ export default function Home() {
 
 
 {/* Fahrzeuge */}
+ <section id="fahrzeuge">
 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-6 mt-14 mb-20 items-start">
   {[
     {
@@ -328,8 +329,10 @@ export default function Home() {
         </a>
       </div>
     </div>
+    
   ))}
 </div>
+</section>
 
 
 
