@@ -7,13 +7,9 @@ export default function Home() {
 <div className="bg-red-600 text-white text-sm">
   <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 flex flex-col md:flex-row justify-between items-center gap-3 text-center md:text-left">
     
-    <p>
-      Willkommen bei Nabil Car Nordhorn - Gebrauchtwagen & Premium Reifensätze
-    </p>
+
 
     <div className="flex flex-col sm:flex-row gap-2 sm:gap-6">
-      <span>📞 +49 1520 3799152</span>
-      <span>📍 Nordhorn</span>
     </div>
 
   </div>
@@ -189,7 +185,7 @@ export default function Home() {
 
     <p className="text-gray-600 mt-6 md:mt-8 max-w-4xl text-base md:text-lg leading-relaxed">
       Seit über 25 Jahren steht Nabil Car in Nordhorn für zuverlässigen
-      Gebrauchtwagenhandel, Premium-Reifensätze und persönliche Beratung.
+      Gebrauchtwagenhandel und persönliche Beratung.
       Als familiengeführter Betrieb legen wir Wert auf faire Preise,
       ehrliche Beratung und langfristige Kundenzufriedenheit.
       Unsere Fahrzeuge werden vor dem Verkauf sorgfältig geprüft,
