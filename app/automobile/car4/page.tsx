@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export default function Car3Page() {
   const images = [
-    "/cars/car4/car4.1.jpg",
+    "/cars/car4/car4.1.avif",
     "/cars/car4/car4.2.avif",
     "/cars/car4/car4.3.avif",
     "/cars/car4/car4.4.avif",
@@ -169,7 +169,7 @@ export default function Car3Page() {
                 </a>
 
                 <a
-                  href="https://home.mobile.de/home/vip?sb=p&od=down&customerId=468257&vc=Car&ref=srp&pageNumber=2&searchId=e9b72f60-56e5-4164-f215-3e076ebed215&id=450740291"
+                  href="https://home.mobile.de/home/vip?sb=p&od=down&customerId=468257&vc=Car&ref=srp&searchId=b587d8ec-77d9-88ef-e335-eaa3183eab36&id=443669461"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-4 block border border-gray-300 hover:border-red-600 transition text-center px-6 py-4 rounded-xl font-semibold text-black"

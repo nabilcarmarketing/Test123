@@ -260,7 +260,7 @@ export default function Home() {
       details: "12/2018 • Diesel • Automatik • 297.000 km",
       price: "9.450 €",
       link: "/automobile/car1",
-      image: "/cars/car1/car1.avif",
+      image: "/cars/car1/car1.2.avif",
     },
     {
       name: "Opel Zafira Life",
@@ -274,7 +274,7 @@ export default function Home() {
       details: "05/2016 • Benzin • Schaltgetriebe • 160.000 km",
       price: "31.500 €",
       link: "/automobile/car3",
-      image: "/cars/car3/car3.1.jpg",
+      image: "/cars/car3/car3.3.avif",
     },
     {
       name: "Opel Insignia B Sports",
