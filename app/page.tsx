@@ -248,8 +248,7 @@ export default function Home() {
 </section>
 
 
-
-/* Fahrzeuge */
+{/* Fahrzeuge */}
 <section id="fahrzeuge" className="py-20 px-6 bg-white">
   <div className="max-w-7xl mx-auto">
     <p className="text-red-600 uppercase tracking-[0.3em] text-sm font-medium">
