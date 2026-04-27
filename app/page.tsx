@@ -1,124 +1,187 @@
+"use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white text-black">
       {/* Top Info Bar */}
-<div className="bg-red-600 text-white text-sm">
-  <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 flex flex-col md:flex-row justify-between items-center gap-3 text-center md:text-left">
-    
-
-
-    <div className="flex flex-col sm:flex-row gap-2 sm:gap-6">
-    </div>
-
-  </div>
-</div>
+      <div className="bg-red-600 text-white text-sm">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 flex flex-col md:flex-row justify-between items-center gap-3 text-center md:text-left">
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-6"></div>
+        </div>
+      </div>
 
       {/* Header */}
-<header className="bg-white border-b border-gray-200 sticky top-0 z-50">
-  <nav className="max-w-7xl mx-auto px-4 md:px-6 py-4 md:py-6 flex items-center justify-between">
-    
-    {/* Logo */}
-    <div>
-      <h1 className="text-2xl md:text-4xl font-bold tracking-tight text-red-600">
-        Nabil Car
-      </h1>
+      <header className="bg-white/95 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50">
+        <nav className="max-w-7xl mx-auto px-4 md:px-6 py-4 md:py-6 flex items-center justify-between">
+          {/* Logo */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <h1 className="text-2xl md:text-4xl font-bold tracking-tight text-red-600">
+              Nabil Car
+            </h1>
 
-      <p className="text-xs md:text-sm tracking-[0.3em] md:tracking-[0.4em] text-gray-500 uppercase ml-1 md:ml-3">
-        Nordhorn
-      </p>
-    </div>
+            <p className="text-xs md:text-sm tracking-[0.3em] md:tracking-[0.4em] text-gray-500 uppercase ml-1 md:ml-3">
+              Nordhorn
+            </p>
+          </motion.div>
 
-    {/* Desktop Navigation */}
-    <div className="hidden lg:flex gap-8 xl:gap-10 text-base xl:text-lg font-medium text-gray-800">
-      <a href="#" className="hover:text-red-600 transition">
-        Startseite
-      </a>
+          {/* Desktop Navigation */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.3, delay: 0.2 }}
+            className="hidden lg:flex gap-8 xl:gap-10 text-base xl:text-lg font-medium text-gray-800"
+          >
+            <a href="#" className="hover:text-red-600 transition">
+              Startseite
+            </a>
 
-      <a href="#ueber-uns" className="hover:text-red-600 transition">
-        Über uns
-      </a>
+            <a
+              href="#ueber-uns"
+              className="hover:text-red-600 transition"
+            >
+              Über uns
+            </a>
 
-      <a href="#fahrzeuge" className="hover:text-red-600 transition">
-        Fahrzeuge
-      </a>
+            <a
+              href="#fahrzeuge"
+              className="hover:text-red-600 transition"
+            >
+              Fahrzeuge
+            </a>
 
-      <a href="#reifen" className="hover:text-red-600 transition">
-        Reifen & Felgen
-      </a>
+            <a
+              href="#reifen"
+              className="hover:text-red-600 transition"
+            >
+              Reifen & Felgen
+            </a>
 
-      <a href="#kontakt" className="hover:text-red-600 transition">
-        Kontakt
-      </a>
-    </div>
+            <a
+              href="#kontakt"
+              className="hover:text-red-600 transition"
+            >
+              Kontakt
+            </a>
+          </motion.div>
 
-    {/* Mobile.de Button */}
-    <a
-      href="https://home.mobile.de/NABIL-CAR"
-      className="bg-red-600 hover:bg-red-700 transition text-white px-4 md:px-6 py-2 md:py-3 rounded-xl font-semibold shadow-lg text-sm md:text-base"
-    >
-      Mobile.de
-    </a>
-
-  </nav>
-</header>
+          {/* Mobile.de Button */}
+          <motion.a
+            href="https://home.mobile.de/NABIL-CAR"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.4, delay: 0.5 }}
+            whileHover={{ y: -3 }}
+            className="bg-red-600 hover:bg-red-700 transition text-white px-4 md:px-6 py-2 md:py-3 rounded-xl font-semibold shadow-lg text-sm md:text-base"
+          >
+            Mobile.de
+          </motion.a>
+        </nav>
+      </header>
 
       {/* Hero Section */}
-<section className="relative min-h-[600px] md:min-h-[700px] flex items-center">
-  <div
-    className="absolute inset-0 bg-cover bg-center"
-    style={{
-      backgroundImage:
-        "linear-gradient(to right, rgba(0,0,0,0.72), rgba(0,0,0,0.25)), url('/images/Header.png')",
-    }}
-  />
+      <section className="relative min-h-[600px] md:min-h-[700px] flex items-center overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, rgba(0,0,0,0.72), rgba(0,0,0,0.25)), url('/images/Header.png')",
+          }}
+        />
 
-  <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 w-full text-white">
-    <p className="uppercase tracking-[0.25em] md:tracking-[0.35em] text-red-500 text-xs md:text-sm font-medium">
-      Nabil Car Nordhorn
-    </p>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 w-full text-white">
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.1 }}
+            className="uppercase tracking-[0.25em] md:tracking-[0.35em] text-red-500 text-xs md:text-sm font-medium"
+          >
+            Nabil Car Nordhorn
+          </motion.p>
 
-    <h2 className="text-3xl sm:text-4xl md:text-7xl font-bold leading-tight mt-4">
-      An- & Verkauf von
-      <br />
-      <span className="text-red-500">
-        Gebrauchtwagen
-      </span>
-    </h2>
+          <motion.h2
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.3, delay: 0.2 }}
+            className="text-3xl sm:text-4xl md:text-7xl font-bold leading-tight mt-4"
+          >
+            An- & Verkauf von
+            <br />
+            <span className="text-red-500">
+              Gebrauchtwagen
+            </span>
+          </motion.h2>
 
-    <p className="text-base sm:text-lg md:text-xl text-gray-200 mt-6 md:mt-8 max-w-2xl leading-relaxed">
-      Gebrauchtwagen, Premium Reifensätze, Alufelgen &
-      Kompletträder zu fairen Preisen - mit Büro,
-      Fahrzeugbestand und persönlicher Beratung direkt
-      in Nordhorn.
-    </p>
+          <motion.p
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.3, delay: 0.4 }}
+            className="text-base sm:text-lg md:text-xl text-gray-200 mt-6 md:mt-8 max-w-2xl leading-relaxed"
+          >
+            Gebrauchtwagen, Premium Reifensätze, Alufelgen &
+            Kompletträder zu fairen Preisen - mit Büro,
+            Fahrzeugbestand und persönlicher Beratung direkt
+            in Nordhorn.
+          </motion.p>
 
-    <div className="flex flex-col sm:flex-row gap-4 mt-8 md:mt-10 w-full sm:w-auto">
-      <a
-        href="https://home.mobile.de/NABIL-CAR"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="bg-red-600 hover:bg-red-700 transition px-6 md:px-8 py-4 rounded-xl font-semibold text-base md:text-lg text-white text-center w-full sm:w-auto"
-      >
-        Fahrzeuge ansehen
-      </a>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.3, delay: 0.6 }}
+            className="flex flex-col sm:flex-row gap-4 mt-8 md:mt-10 w-full sm:w-auto"
+          >
+            <motion.a
+              href="https://home.mobile.de/NABIL-CAR"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ y: -3 }}
+              className="bg-red-600 hover:bg-red-700 transition px-6 md:px-8 py-4 rounded-xl font-semibold text-base md:text-lg text-white text-center w-full sm:w-auto"
+            >
+              Fahrzeuge ansehen
+            </motion.a>
 
-      <a
-        href="tel:+4915203799152"
-        className="border border-white px-6 md:px-8 py-4 rounded-xl font-semibold text-base md:text-lg text-white text-center hover:bg-white hover:text-black transition w-full sm:w-auto"
-      >
-        Termin vereinbaren
-      </a>
-    </div>
-  </div>
-</section>
+            <motion.a
+              href="tel:+4915203799152"
+              whileHover={{ y: -3 }}
+              className="border border-white px-6 md:px-8 py-4 rounded-xl font-semibold text-base md:text-lg text-white text-center hover:bg-white hover:text-black transition w-full sm:w-auto"
+            >
+              Termin vereinbaren
+            </motion.a>
+          </motion.div>
+        </div>
+      </section>
+  
 
-     {/* Vorteile */}
-<section className="bg-gray-50 py-16 px-4 md:px-6">
+
+
+
+
+
+
+
+{/* Vorteile */}
+<motion.section
+  initial={{ opacity: 0, y: 60 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{
+    duration: 1.2,
+    ease: "easeOut",
+  }}
+  className="bg-gray-50 py-16 px-4 md:px-6"
+>
   <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-    
-    <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+
+    <motion.div
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.35 }}
+      className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100"
+    >
       <h3 className="text-xl font-bold">
         Geprüfte Qualität
       </h3>
@@ -127,9 +190,13 @@ export default function Home() {
         Alle Fahrzeuge werden sorgfältig geprüft und in
         gepflegtem Zustand angeboten.
       </p>
-    </div>
+    </motion.div>
 
-    <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+    <motion.div
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.35 }}
+      className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100"
+    >
       <h3 className="text-xl font-bold">
         Große Auswahl
       </h3>
@@ -138,9 +205,13 @@ export default function Home() {
         Fahrzeuge, Reifensätze, Alufelgen und
         Kompletträder direkt vor Ort verfügbar.
       </p>
-    </div>
+    </motion.div>
 
-    <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+    <motion.div
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.35 }}
+      className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100"
+    >
       <h3 className="text-xl font-bold">
         Faire Preise
       </h3>
@@ -149,9 +220,13 @@ export default function Home() {
         Ehrliche Beratung, transparente Preise und
         zuverlässige Kaufabwicklung.
       </p>
-    </div>
+    </motion.div>
 
-    <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+    <motion.div
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.35 }}
+      className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100"
+    >
       <h3 className="text-xl font-bold">
         Schnelle Abwicklung
       </h3>
@@ -160,18 +235,25 @@ export default function Home() {
         Unkomplizierte Prozesse und schnelle
         Terminvereinbarung ohne Umwege.
       </p>
-    </div>
+    </motion.div>
 
   </div>
-</section>
+</motion.section>
 
-      
+
 
 
 
 {/* Über Uns */}
-<section
+<motion.section
   id="ueber-uns"
+  initial={{ opacity: 0, y: 70 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{
+    duration: 1.3,
+    ease: "easeOut",
+  }}
   className="py-20 md:py-24 px-4 md:px-6 bg-white border-t border-gray-200"
 >
   <div className="max-w-7xl mx-auto">
@@ -230,7 +312,16 @@ export default function Home() {
       </div>
     </div>
 
-    <div className="mt-14 md:mt-16 bg-gray-900 text-white rounded-3xl p-6 md:p-10">
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{
+        duration: 1.2,
+        ease: "easeOut",
+      }}
+      className="mt-14 md:mt-16 bg-gray-900 text-white rounded-3xl p-6 md:p-10"
+    >
       <h3 className="text-2xl md:text-3xl font-bold leading-tight">
         Verwurzelt in Nordhorn - mehr als nur Fahrzeughandel
       </h3>
@@ -243,13 +334,25 @@ export default function Home() {
         Für uns bedeutet Geschäft nicht nur Verkauf, sondern langfristige
         Beziehungen, Vertrauen und Verantwortung vor Ort.
       </p>
-    </div>
+    </motion.div>
   </div>
-</section>
+</motion.section>
+
+
 
 
 {/* Fahrzeuge */}
-<section id="fahrzeuge" className="py-20 px-6 bg-white">
+<motion.section
+  id="fahrzeuge"
+  initial={{ opacity: 0, y: 70 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{
+    duration: 1.3,
+    ease: "easeOut",
+  }}
+  className="py-20 px-6 bg-white"
+>
   <div className="max-w-7xl mx-auto">
     <p className="text-red-600 uppercase tracking-[0.3em] text-sm font-medium">
       Fahrzeuge
@@ -283,7 +386,7 @@ export default function Home() {
         {
           name: "Ford Focus",
           details: "05/2016 • Benzin • Schaltgetriebe • 160.000 km",
-          price: "31.500 €",
+          price: "5.950 €",
           link: "/automobile/car3",
           image: "/cars/car3/car3.3.avif",
         },
@@ -309,8 +412,13 @@ export default function Home() {
           image: "/cars/car6/car6.1.avif",
         },
       ].map((car) => (
-        <div
+        <motion.div
           key={car.name}
+          whileHover={{ y: -6 }}
+          transition={{
+            duration: 0.35,
+            ease: "easeOut",
+          }}
           className="bg-white rounded-3xl border border-gray-100 shadow-lg overflow-hidden hover:shadow-xl transition w-full max-w-[380px]"
         >
           <img
@@ -332,20 +440,20 @@ export default function Home() {
               {car.price}
             </p>
 
-            <a
+            <motion.a
               href={car.link}
+              whileHover={{ y: -2 }}
+              transition={{ duration: 0.3 }}
               className="mt-6 inline-block bg-red-600 hover:bg-red-700 transition text-white px-6 py-3 rounded-xl font-semibold"
             >
               Mehr erfahren
-            </a>
+            </motion.a>
           </div>
-        </div>
+        </motion.div>
       ))}
     </div>
   </div>
-</section>
-
-
+</motion.section>
 
 
 {/* Reifen & Felgen */}
@@ -376,7 +484,7 @@ export default function Home() {
 
       <div className="mt-8 md:mt-10">
         <a
-          href="/reifen-anfrage"
+          href="/reifen"
           className="inline-block w-full sm:w-auto text-center bg-red-600 hover:bg-red-700 transition text-white px-8 py-4 rounded-xl font-semibold"
         >
           Zum Anfrageformular

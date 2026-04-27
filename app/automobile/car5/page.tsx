@@ -104,27 +104,28 @@ export default function Car3Page() {
                     ›
                   </button>
                 </div>
-
-                <div className="grid grid-cols-5 gap-3 p-3 md:p-4">
-                  {images.map((image, index) => (
-                    <button
-                      key={index}
-                      type="button"
-                      onClick={() => setCurrentImage(index)}
-                      className={`rounded-xl overflow-hidden border transition ${
-                        currentImage === index
-                          ? "border-red-600 ring-2 ring-red-600"
-                          : "border-gray-200 hover:border-red-300"
-                      }`}
-                    >
-                      <img
-                        src={image}
-                        alt={`Opel Zafira Life ${index + 1}`}
-                        className="w-full h-16 sm:h-20 md:h-24 object-cover"
-                      />
-                    </button>
-                  ))}
-                </div>
+<div className="relative p-4">
+  <div className="flex gap-3 overflow-x-auto scroll-smooth no-scrollbar">
+    {images.map((image, index) => (
+      <button
+        key={index}
+        type="button"
+        onClick={() => setCurrentImage(index)}
+        className={`flex-shrink-0 rounded-2xl overflow-hidden border-2 transition ${
+          currentImage === index
+            ? "border-red-600"
+            : "border-transparent hover:border-red-300"
+        }`}
+      >
+        <img
+          src={image}
+          alt={`Citroën C3 ${index + 1}`}
+          className="w-[140px] h-[90px] md:w-[160px] md:h-[100px] object-cover"
+        />
+      </button>
+    ))}
+  </div>
+</div>
               </div>
             </div>
 
@@ -293,7 +294,7 @@ export default function Car3Page() {
                 </a>
 
                 <a
-                  href="/reifen-anfrage"
+                  href="/reifen"
                   className="text-gray-700 hover:text-red-600 transition font-medium"
                 >
                   Reifen-Anfrage

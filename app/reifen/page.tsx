@@ -19,7 +19,7 @@ export default function ReifenAnfragePage() {
             <a href="/#kontakt">Kontakt</a>
           </div>
     <a
-      href="/"
+      href="/reifen-anfrage"
       className="bg-red-600 hover:bg-red-700 transition text-white px-6 py-3 rounded-xl font-semibold"
     >
       Zur Hauptseite
