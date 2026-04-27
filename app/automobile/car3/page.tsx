@@ -4,23 +4,21 @@ import { useState } from "react";
 
 export default function Car3Page() {
   const images = [
-    "/cars/car2/car2.1.avif",
-    "/cars/car2/car2.2.avif",
-    "/cars/car2/car2.3.avif",
-    "/cars/car2/car2.4.avif",
-    "/cars/car2/car2.5.avif",
-    "/cars/car2/car2.6.avif",
-    "/cars/car2/car2.7.avif",
-    "/cars/car2/car2.8.avif",
-    "/cars/car2/car2.9.avif",
-    "/cars/car2/car2.10.avif",
-    "/cars/car2/car2.11.avif",
-    "/cars/car2/car2.12.avif",
-    "/cars/car2/car2.13.avif",
-    "/cars/car2/car2.14.avif",
-    "/cars/car2/car2.15.avif",
-    "/cars/car2/car2.16.avif",
-    "/cars/car2/car2.17.avif",
+    "/cars/car3/car3.1.jpg",
+    "/cars/car3/car3.2.avif",
+    "/cars/car3/car3.3.avif",
+    "/cars/car3/car3.4.avif",
+    "/cars/car3/car3.5.avif",
+    "/cars/car3/car3.6.avif",
+    "/cars/car3/car3.7.avif",
+    "/cars/car3/car3.8.avif",
+    "/cars/car3/car3.9.avif",
+    "/cars/car3/car3.10.avif",
+    "/cars/car3/car3.11.avif",
+    "/cars/car3/car3.12.avif",
+    "/cars/car3/car3.13.avif",
+
+    
   ];
 
   const [currentImage, setCurrentImage] = useState(0);
@@ -133,29 +131,29 @@ export default function Car3Page() {
             <div>
               <div className="bg-white rounded-3xl shadow-lg border border-gray-100 p-6 md:p-8 sticky top-24">
                 <h1 className="text-3xl md:text-4xl font-bold text-black">
-                  Opel Zafira Life
+                  Ford Focus
                 </h1>
-                <p className="text-gray-500 text-lg md:text-xl mt-2">Elegance M</p>
+                <p className="text-gray-500 text-lg md:text-xl mt-2">Trend Turnier</p>
 
                 <p className="text-red-600 text-3xl md:text-4xl font-bold mt-8">
-                  19.900 €
+                  5.950€
                 </p>
 
                 <div className="space-y-4 mt-8 text-gray-700">
                   <p>
-                    <strong>Kilometerstand:</strong> 209.000 km
+                    <strong>Kilometerstand:</strong> 160.000 km
                   </p>
                   <p>
-                    <strong>Erstzulassung:</strong> 11/2020
+                    <strong>Erstzulassung:</strong> 05/2016
                   </p>
                   <p>
                     <strong>Kraftstoff:</strong> Diesel
                   </p>
                   <p>
-                    <strong>Getriebe:</strong> Automatik
+                    <strong>Getriebe:</strong> Schaltgetriebe
                   </p>
                   <p>
-                    <strong>Leistung:</strong> 130 kW (177 PS)
+                    <strong>Leistung:</strong> 92 kW (125 PS)
                   </p>
                 </div>
 
@@ -167,7 +165,7 @@ export default function Car3Page() {
                 </a>
 
                 <a
-                  href="https://home.mobile.de/home/vip?sb=rel&od=up&customerId=468257&vc=Car&searchId=eb7eb935-88a8-5e8d-e5c2-dcb9b217c220&ref=srp&id=453098559"
+                  href="https://home.mobile.de/home/vip?sb=p&od=down&customerId=468257&vc=Car&ref=srp&pageNumber=2&searchId=e9b72f60-56e5-4164-f215-3e076ebed215&id=450740291"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-4 block border border-gray-300 hover:border-red-600 transition text-center px-6 py-4 rounded-xl font-semibold text-black"

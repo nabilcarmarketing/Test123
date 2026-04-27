@@ -4,23 +4,25 @@ import { useState } from "react";
 
 export default function Car3Page() {
   const images = [
-    "/cars/car2/car2.1.avif",
-    "/cars/car2/car2.2.avif",
-    "/cars/car2/car2.3.avif",
-    "/cars/car2/car2.4.avif",
-    "/cars/car2/car2.5.avif",
-    "/cars/car2/car2.6.avif",
-    "/cars/car2/car2.7.avif",
-    "/cars/car2/car2.8.avif",
-    "/cars/car2/car2.9.avif",
-    "/cars/car2/car2.10.avif",
-    "/cars/car2/car2.11.avif",
-    "/cars/car2/car2.12.avif",
-    "/cars/car2/car2.13.avif",
-    "/cars/car2/car2.14.avif",
-    "/cars/car2/car2.15.avif",
-    "/cars/car2/car2.16.avif",
-    "/cars/car2/car2.17.avif",
+    "/cars/car4/car4.1.jpg",
+    "/cars/car4/car4.2.avif",
+    "/cars/car4/car4.3.avif",
+    "/cars/car4/car4.4.avif",
+    "/cars/car4/car4.5.avif",
+    "/cars/car4/car4.6.avif",
+    "/cars/car4/car4.7.avif",
+    "/cars/car4/car4.8.avif",
+    "/cars/car4/car4.9.avif",
+    "/cars/car4/car4.10.avif",
+    "/cars/car4/car4.11.avif",
+    "/cars/car4/car4.12.avif",
+    "/cars/car4/car4.13.avif",
+    "/cars/car4/car4.14.avif",
+    "/cars/car4/car4.15.avif",
+    "/cars/car4/car4.16.avif",
+    "/cars/car4/car4.17.avif",
+
+    
   ];
 
   const [currentImage, setCurrentImage] = useState(0);
@@ -133,31 +135,31 @@ export default function Car3Page() {
             <div>
               <div className="bg-white rounded-3xl shadow-lg border border-gray-100 p-6 md:p-8 sticky top-24">
                 <h1 className="text-3xl md:text-4xl font-bold text-black">
-                  Opel Zafira Life
+                  Opel Insignia
                 </h1>
-                <p className="text-gray-500 text-lg md:text-xl mt-2">Elegance M</p>
+               <p className="text-gray-500 text-lg md:text-xl mt-2">
 
-                <p className="text-red-600 text-3xl md:text-4xl font-bold mt-8">
-                  19.900 €
-                </p>
+<p className="text-red-600 text-3xl md:text-4xl font-bold mt-8">B Sports Tourer Innovation </p>
+  10.950 €
+</p>
 
-                <div className="space-y-4 mt-8 text-gray-700">
-                  <p>
-                    <strong>Kilometerstand:</strong> 209.000 km
-                  </p>
-                  <p>
-                    <strong>Erstzulassung:</strong> 11/2020
-                  </p>
-                  <p>
-                    <strong>Kraftstoff:</strong> Diesel
-                  </p>
-                  <p>
-                    <strong>Getriebe:</strong> Automatik
-                  </p>
-                  <p>
-                    <strong>Leistung:</strong> 130 kW (177 PS)
-                  </p>
-                </div>
+<div className="space-y-4 mt-8 text-gray-700">
+  <p>
+    <strong>Kilometerstand:</strong> 172.000 km
+  </p>
+  <p>
+    <strong>Erstzulassung:</strong> 09/2018
+  </p>
+  <p>
+    <strong>Kraftstoff:</strong> Diesel
+  </p>
+  <p>
+    <strong>Getriebe:</strong> Automatik
+  </p>
+  <p>
+    <strong>Leistung:</strong> 125 kW (170 PS)
+  </p>
+</div>
 
                 <a
                   href="tel:+4915203799152"
@@ -167,7 +169,7 @@ export default function Car3Page() {
                 </a>
 
                 <a
-                  href="https://home.mobile.de/home/vip?sb=rel&od=up&customerId=468257&vc=Car&searchId=eb7eb935-88a8-5e8d-e5c2-dcb9b217c220&ref=srp&id=453098559"
+                  href="https://home.mobile.de/home/vip?sb=p&od=down&customerId=468257&vc=Car&ref=srp&pageNumber=2&searchId=e9b72f60-56e5-4164-f215-3e076ebed215&id=450740291"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-4 block border border-gray-300 hover:border-red-600 transition text-center px-6 py-4 rounded-xl font-semibold text-black"
@@ -183,55 +185,49 @@ export default function Car3Page() {
               Ausstattung & Beschreibung
             </h2>
 
-            <p className="text-gray-600 mt-5 md:mt-6 text-base md:text-lg leading-relaxed">
-              Gepflegter Opel Zafira Life Elegance mit Automatikgetriebe, großem Raumangebot
-              und sehr guter Ausstattung. Das Fahrzeug ist technisch in gutem Zustand,
-              geprüft und sofort verfügbar. Ideal als Familienfahrzeug, Shuttle,
-              Geschäftswagen oder für lange Reisen mit maximalem Komfort.
-            </p>
-
-           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mt-8 md:mt-10 text-gray-700">
-  <p>• Navigationssystem Multimedia Navi Pro</p>
-  <p>• Rückfahrkamera mit 180° Umgebungsansicht</p>
+           <p className="text-gray-600 mt-5 md:mt-6 text-base md:text-lg leading-relaxed">
+  Gepflegter Opel Insignia Sports Tourer Innovation mit Automatikgetriebe,
+  sehr guter Ausstattung und komfortablem Dieselantrieb. Das Fahrzeug ist
+  technisch in gutem Zustand, geprüft und sofort verfügbar. Ideal als
+  Familienfahrzeug, Alltagswagen oder für lange Strecken mit hohem Komfort.
+</p>
+<div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mt-8 md:mt-10 text-gray-700">
+  <p>• Multimedia Navi Pro</p>
+  <p>• Rückfahrkamera + Einparkhilfe vorne & hinten</p>
   <p>• Sitzheizung vorne</p>
   <p>• Tempomat</p>
   <p>• Klimaautomatik (2-Zonen)</p>
   <p>• 8-Gang Automatikgetriebe</p>
-  <p>• 8-Sitzer mit 3. Sitzreihe</p>
-  <p>• Panorama-Glasdach</p>
-  <p>• Head-Up Display</p>
-  <p>• Massagesitze vorne</p>
+  <p>• LED IntelliLux Scheinwerfer</p>
+  <p>• Panorama-Schiebedach elektrisch</p>
+  <p>• Spurhalteassistent</p>
+  <p>• Apple CarPlay & Android Auto</p>
 
   {showMore && (
     <>
-      <p>• Bi-Xenon Scheinwerfer</p>
-      <p>• Adaptives Kurvenlicht</p>
-      <p>• Spurhalteassistent</p>
-      <p>• Verkehrszeichenerkennung</p>
-      <p>• Abstandswarner</p>
-      <p>• Berganfahrassistent</p>
-      <p>• Anhängerkupplung abnehmbar</p>
-      <p>• Elektrische Schiebetüren links & rechts</p>
-      <p>• Elektrische Sitzeinstellung</p>
-      <p>• Elektrische Fensterheber</p>
-      <p>• Elektrische Außenspiegel</p>
-      <p>• Innenspiegel automatisch abblendend</p>
-      <p>• Regensensor</p>
-      <p>• Leichtmetallfelgen</p>
-      <p>• Abgedunkelte Scheiben</p>
-      <p>• Bluetooth / DAB Radio</p>
-      <p>• Lederlenkrad</p>
-      <p>• Multifunktionslenkrad</p>
+      <p>• ABS / ESP / Traktionskontrolle</p>
       <p>• ISOFIX Kindersitzbefestigung</p>
-      <p>• Start/Stopp-Automatik</p>
-      <p>• Partikelfilter + AdBlue</p>
+      <p>• Lederlenkrad beheizbar</p>
+      <p>• Multifunktionslenkrad</p>
+      <p>• Elektrische Fensterheber</p>
+      <p>• Elektrische & beheizbare Außenspiegel</p>
+      <p>• Keyless Zentralverriegelung</p>
+      <p>• Berganfahr-Assistent</p>
       <p>• Frontantrieb</p>
-      <p>• Scheckheftgepflegt</p>
-      <p>• Inspektion neu</p>
-      <p>• Standheizung mit Funkfernbedienung</p>
-      <p>• HiFi Soundsystem mit Subwoofer</p>
-      <p>• Parkpilot vorne & hinten</p>
-      <p>• Solar-Protect Wärmeschutzverglasung</p>
+      <p>• Start/Stopp-Automatik</p>
+      <p>• Adaptives Kurvenlicht</p>
+      <p>• Allwetterreifen</p>
+      <p>• Anhängerkupplung abnehmbar</p>
+      <p>• Leichtmetallfelgen</p>
+      <p>• DAB Radio + Bluetooth</p>
+      <p>• Bordcomputer</p>
+      <p>• Ergonomiesitze vorne</p>
+      <p>• Wärmeschutzverglasung hinten</p>
+      <p>• Partikelfilter</p>
+      <p>• Euro 6 / Umweltplakette Grün</p>
+      <p>• HU Neu</p>
+      <p>• Anhängelast gebremst: 1.950 kg</p>
+      <p>• Servolenkung</p>
     </>
   )}
 </div>
