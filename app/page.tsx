@@ -291,9 +291,9 @@ export default function Home() {
       image: "/cars/car5/car5.1.avif",
     },
     {
-      name: "Ford Transit",
-      details: "09/2019 • Diesel • Schaltgetriebe • 166.000 km",
-      price: "18.450 €",
+      name: "Citroën C3",
+      details: "06/2010 • Diesel • Schaltgetriebe • 57.000 km",
+      price: "5.950 €",
       link: "/automobile/car6",
       image: "/cars/car6/car6.1.avif",
     },
