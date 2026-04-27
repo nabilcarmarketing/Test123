@@ -249,93 +249,102 @@ export default function Home() {
 
 
 
+/* Fahrzeuge */
+<section id="fahrzeuge" className="py-20 px-6 bg-white">
+  <div className="max-w-7xl mx-auto">
+    <p className="text-red-600 uppercase tracking-[0.3em] text-sm font-medium">
+      Fahrzeuge
+    </p>
 
+    <h2 className="text-5xl font-bold mt-4">
+      Unsere aktuellen Fahrzeuge
+    </h2>
 
-{/* Fahrzeuge */}
- <section id="fahrzeuge">
-<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-6 mt-14 mb-20 items-start">
-  {[
-    {
-      name: "Ford Kuga ST-Line",
-      details: "12/2018 • Diesel • Automatik • 297.000 km",
-      price: "9.450 €",
-      link: "/automobile/car1",
-      image: "/cars/car1/car1.2.avif",
-    },
-    {
-      name: "Opel Zafira Life",
-      details: "11/2020 • Diesel • Automatik • 209.000 km",
-      price: "19.900 €",
-      link: "/automobile/car2",
-      image: "/cars/car2/car2.1.avif",
-    },
-    {
-      name: "Ford Focus",
-      details: "05/2016 • Benzin • Schaltgetriebe • 160.000 km",
-      price: "31.500 €",
-      link: "/automobile/car3",
-      image: "/cars/car3/car3.3.avif",
-    },
-    {
-      name: "Opel Insignia B Sports",
-      details: "09/2018 • Diesel • Automatik • 172.000 km",
-      price: "10.950 €",
-      link: "/automobile/car4",
-      image: "/cars/car4/car4.1.avif",
-    },
-    {
-      name: "Ford Ecosport",
-      details: "04/2019 • Benzin • Automatik • 96.000 km",
-      price: "11.950 €",
-      link: "/automobile/car5",
-      image: "/cars/car5/car5.1.avif",
-    },
-    {
-      name: "Citroën C3",
-      details: "06/2010 • Diesel • Schaltgetriebe • 57.000 km",
-      price: "5.950 €",
-      link: "/automobile/car6",
-      image: "/cars/car6/car6.1.avif",
-    },
-  ].map((car) => (
-    <div
-      key={car.name}
-      className="bg-white rounded-3xl border border-gray-100 shadow-lg overflow-hidden hover:shadow-xl transition h-fit max-w-md w-full mx-auto"
-    >
-      <img
-        src={car.image}
-        alt={car.name}
-        className="w-full h-56 object-cover"
-      />
+    <p className="text-gray-600 mt-6 max-w-3xl text-lg leading-relaxed">
+      Geprüfte Gebrauchtwagen mit fairen Preisen, persönlicher Beratung und
+      sofortiger Verfügbarkeit direkt in Nordhorn.
+    </p>
 
-      <div className="p-8">
-        <h3 className="text-2xl font-bold leading-tight">
-          {car.name}
-        </h3>
-
-        <p className="text-gray-600 mt-3 text-base leading-relaxed">
-          {car.details}
-        </p>
-
-        <p className="text-red-600 text-2xl font-bold mt-5">
-          {car.price}
-        </p>
-
-        <a
-          href={car.link}
-          className="mt-6 inline-block bg-red-600 hover:bg-red-700 transition text-white px-6 py-3 rounded-xl font-semibold"
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center mt-14">
+      {[
+        {
+          name: "Ford Kuga ST-Line",
+          details: "12/2018 • Diesel • Automatik • 297.000 km",
+          price: "9.450 €",
+          link: "/automobile/car1",
+          image: "/cars/car1/car1.2.avif",
+        },
+        {
+          name: "Opel Zafira Life",
+          details: "11/2020 • Diesel • Automatik • 209.000 km",
+          price: "19.900 €",
+          link: "/automobile/car2",
+          image: "/cars/car2/car2.1.avif",
+        },
+        {
+          name: "Ford Focus",
+          details: "05/2016 • Benzin • Schaltgetriebe • 160.000 km",
+          price: "31.500 €",
+          link: "/automobile/car3",
+          image: "/cars/car3/car3.3.avif",
+        },
+        {
+          name: "Opel Insignia B Sports",
+          details: "09/2018 • Diesel • Automatik • 172.000 km",
+          price: "10.950 €",
+          link: "/automobile/car4",
+          image: "/cars/car4/car4.1.avif",
+        },
+        {
+          name: "Ford EcoSport",
+          details: "04/2019 • Benzin • Automatik • 96.000 km",
+          price: "11.950 €",
+          link: "/automobile/car5",
+          image: "/cars/car5/car5.1.avif",
+        },
+        {
+          name: "Citroën C3",
+          details: "06/2010 • Benzin • Schaltgetriebe • 57.000 km",
+          price: "5.950 €",
+          link: "/automobile/car6",
+          image: "/cars/car6/car6.1.avif",
+        },
+      ].map((car) => (
+        <div
+          key={car.name}
+          className="bg-white rounded-3xl border border-gray-100 shadow-lg overflow-hidden hover:shadow-xl transition w-full max-w-[380px]"
         >
-          Mehr erfahren
-        </a>
-      </div>
+          <img
+            src={car.image}
+            alt={car.name}
+            className="w-full h-56 object-cover"
+          />
+
+          <div className="p-8">
+            <h3 className="text-2xl font-bold leading-tight">
+              {car.name}
+            </h3>
+
+            <p className="text-gray-600 mt-3 text-base leading-relaxed">
+              {car.details}
+            </p>
+
+            <p className="text-red-600 text-2xl font-bold mt-5">
+              {car.price}
+            </p>
+
+            <a
+              href={car.link}
+              className="mt-6 inline-block bg-red-600 hover:bg-red-700 transition text-white px-6 py-3 rounded-xl font-semibold"
+            >
+              Mehr erfahren
+            </a>
+          </div>
+        </div>
+      ))}
     </div>
-    
-  ))}
-</div>
+  </div>
 </section>
-
-
-
 
 
 
