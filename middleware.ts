@@ -27,6 +27,7 @@ export async function middleware(request: NextRequest) {
             name,
             value: "",
             ...options,
+            
           });
         },
       },
