@@ -27,12 +27,17 @@ export default function AdminPage() {
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
 
   const fetchCars = async () => {
-    const { data } = await supabase
+    const { data, error } = await supabase
       .from("cars")
       .select("*")
       .order("id", { ascending: false });
 
-    if (data) setCars(data);
+    if (error) {
+      console.log("FETCH ERROR:", error);
+      return;
+    }
+
+    setCars(data || []);
   };
 
   useEffect(() => {
@@ -45,32 +50,40 @@ export default function AdminPage() {
     for (const file of selectedFiles) {
       const fileName = `${Date.now()}-${file.name}`;
 
-      const { error } = await supabase.storage
+      const { error: uploadError } = await supabase.storage
         .from("car_images")
         .upload(fileName, file);
 
-      if (error) {
-        console.log("UPLOAD ERROR:", error);
+      if (uploadError) {
+        console.log("UPLOAD ERROR:", uploadError);
         continue;
       }
 
-      const { data } = supabase.storage
+      const { data: publicData } = supabase.storage
         .from("car_images")
         .getPublicUrl(fileName);
 
-      await supabase.from("car_images").insert([
-        {
-          car_id: carId,
-          image_url: data.publicUrl,
-        },
-      ]);
+      const { error: imageInsertError } = await supabase
+        .from("car_images")
+        .insert([
+          {
+            car_id: carId,
+            image_url: publicData.publicUrl,
+          },
+        ]);
+
+      if (imageInsertError) {
+        console.log("IMAGE INSERT ERROR:", imageInsertError);
+      } else {
+        console.log("IMAGE SAVED:", publicData.publicUrl);
+      }
     }
   };
 
   const addCar = async () => {
     if (!newCar.title || !newCar.price) return;
 
-    const { data } = await supabase
+    const { data, error } = await supabase
       .from("cars")
       .insert([
         {
@@ -90,8 +103,16 @@ export default function AdminPage() {
       .select()
       .single();
 
+    if (error) {
+      console.log("CAR INSERT ERROR:", error);
+      return;
+    }
+
     if (data?.id) {
+      console.log("CAR CREATED:", data.id);
       await uploadImages(data.id);
+    } else {
+      console.log("NO CAR ID RETURNED");
     }
 
     setNewCar({
@@ -113,8 +134,8 @@ export default function AdminPage() {
   };
 
   const removeCar = async (id: number) => {
-    await supabase.from("cars").delete().eq("id", id);
     await supabase.from("car_images").delete().eq("car_id", id);
+    await supabase.from("cars").delete().eq("id", id);
     fetchCars();
   };
 
@@ -159,7 +180,7 @@ export default function AdminPage() {
             </div>
 
             <div className="space-y-2">
-              <Label>Ausstattung (mit Komma getrennt)</Label>
+              <Label>Ausstattung</Label>
               <Input
                 value={newCar.equipment}
                 onChange={(e) =>
@@ -189,7 +210,10 @@ export default function AdminPage() {
               />
             </div>
 
-            <Button onClick={addCar} className="rounded-xl px-6 py-3 font-semibold">
+            <Button
+              onClick={addCar}
+              className="rounded-xl px-6 py-3 font-semibold"
+            >
               Fahrzeug speichern
             </Button>
           </CardContent>
@@ -204,7 +228,9 @@ export default function AdminPage() {
                   <p className="text-gray-600">{car.subtitle}</p>
                   <p className="text-gray-600">{car.price}</p>
                   <p className="text-gray-600">{car.mileage}</p>
-                  <p className="text-gray-600">{car.fuel} · {car.transmission}</p>
+                  <p className="text-gray-600">
+                    {car.fuel} · {car.transmission}
+                  </p>
                   <p className="text-gray-600">{car.power}</p>
                   <p className="text-sm text-green-600 font-medium mt-2">
                     {car.status}
