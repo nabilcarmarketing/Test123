@@ -101,28 +101,28 @@ export default function Car1Page() {
                   </button>
                 </div>
 
-     <div className="relative p-4">
-  <div className="flex gap-3 overflow-x-auto scroll-smooth no-scrollbar">
-    {images.map((image, index) => (
-      <button
-        key={index}
-        type="button"
-        onClick={() => setCurrentImage(index)}
-        className={`flex-shrink-0 rounded-2xl overflow-hidden border-2 transition ${
-          currentImage === index
-            ? "border-red-600"
-            : "border-transparent hover:border-red-300"
-        }`}
-      >
-        <img
-          src={image}
-          alt={`Citroën C3 ${index + 1}`}
-          className="w-[140px] h-[90px] md:w-[160px] md:h-[100px] object-cover"
-        />
-      </button>
-    ))}
-  </div>
-</div>
+                <div className="px-3 sm:px-4 py-4">
+                  <div className="flex gap-3 sm:gap-4 overflow-x-auto scroll-smooth no-scrollbar pb-1">
+                    {images.map((image, index) => (
+                      <button
+                        key={index}
+                        type="button"
+                        onClick={() => setCurrentImage(index)}
+                        className={`flex-shrink-0 rounded-2xl overflow-hidden border-2 transition duration-300 ${
+                          currentImage === index
+                            ? "border-red-600"
+                            : "border-transparent hover:border-red-300"
+                        }`}
+                      >
+                        <img
+                          src={image}
+                          alt={`Ford Kuga ${index + 1}`}
+                          className="w-[148px] h-[96px] md:w-[168px] md:h-[108px] object-cover transition-transform duration-300 hover:scale-[1.03]"
+                        />
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -143,16 +143,16 @@ export default function Car1Page() {
                   </p>
                   <p>
                     <strong>Erstzulassung:</strong> 12/2018
-  </p>
-  <p>
-    <strong>Kraftstoff:</strong> Diesel
-  </p>
-  <p>
-    <strong>Getriebe:</strong> Automatik
-  </p>
-  <p>
-    <strong>Leistung:</strong> 132 kW (179 PS)
-  </p>
+                  </p>
+                  <p>
+                    <strong>Kraftstoff:</strong> Diesel
+                  </p>
+                  <p>
+                    <strong>Getriebe:</strong> Automatik
+                  </p>
+                  <p>
+                    <strong>Leistung:</strong> 132 kW (179 PS)
+                  </p>
                 </div>
 
                 <a
@@ -179,52 +179,52 @@ export default function Car1Page() {
               Ausstattung & Beschreibung
             </h2>
 
-            <p className="text-gray-600 mt-5 md:mt-6 text-base md:text-lg leading-relaxed">
-  Gepflegter Ford Kuga ST-Line mit Automatikgetriebe, Allradantrieb und sehr
-  guter Ausstattung. Das Fahrzeug ist technisch in gutem Zustand, geprüft und
-  sofort verfügbar. Ideal als Familien-, Alltags- oder Langstreckenfahrzeug.
-</p>
+            <p className="text-gray-600 mt-5 md:mt-6 text-base md:text-lg leading-relaxed max-w-4xl">
+              Gepflegter Ford Kuga ST-Line mit Automatikgetriebe, Allradantrieb und sehr
+              guter Ausstattung. Das Fahrzeug ist technisch in gutem Zustand, geprüft und
+              sofort verfügbar. Ideal als Familien-, Alltags- oder Langstreckenfahrzeug.
+            </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mt-8 md:mt-10 text-gray-700">
-  <p>• Navigationssystem Ford SYNC</p>
-  <p>• Rückfahrkamera + Einparkhilfe hinten</p>
-  <p>• Sitzheizung vorne</p>
-  <p>• Tempomat</p>
-  <p>• Klimaautomatik (2-Zonen)</p>
-  <p>• Allradantrieb</p>
-  <p>• Sportsitze</p>
-  <p>• Panorama-Glasdach</p>
-  <p>• Bi-Xenon Scheinwerfer</p>
-  <p>• Anhängerkuppllung fest</p>
+              <p>• Navigationssystem Ford SYNC</p>
+              <p>• Rückfahrkamera + Einparkhilfe hinten</p>
+              <p>• Sitzheizung vorne</p>
+              <p>• Tempomat</p>
+              <p>• Klimaautomatik (2-Zonen)</p>
+              <p>• Allradantrieb</p>
+              <p>• Sportsitze</p>
+              <p>• Panorama-Glasdach</p>
+              <p>• Bi-Xenon Scheinwerfer</p>
+              <p>• Anhängerkupplung fest</p>
 
-  {showMore && (
-    <>
-      <p>• ABS / ESP / ASR</p>
-      <p>• ISOFIX Kindersitzbefestigung</p>
-      <p>• Lederlenkrad + Schaltwippen</p>
-      <p>• Multifunktionslenkrad</p>
-      <p>• Elektrische Fensterheber</p>
-      <p>• Elektrische & beheizbare Außenspiegel</p>
-      <p>• Keyless Zentralverriegelung</p>
-      <p>• Park-Assistent (Active Park Assist)</p>
-      <p>• Berganfahr-Assistent</p>
-      <p>• Notbrems-Assistent</p>
-      <p>• Start/Stopp-Automatik</p>
-      <p>• Winterpaket</p>
-      <p>• Nebelscheinwerfer</p>
-      <p>• Tagfahrlicht</p>
-      <p>• Dachreling</p>
-      <p>• Leichtmetallfelgen</p>
-      <p>• Anhängelast gebremst: 2.100 kg</p>
-      <p>• Euro 6 / Umweltplakette Grün</p>
-      <p>• HU bis 07/2027</p>
-      <p>• Sommerreifen</p>
-      <p>• Bordcomputer</p>
-      <p>• CD-Spieler</p>
-      <p>• Servolenkung</p>
-    </>
-  )}
-</div>
+              {showMore && (
+                <>
+                  <p>• ABS / ESP / ASR</p>
+                  <p>• ISOFIX Kindersitzbefestigung</p>
+                  <p>• Lederlenkrad + Schaltwippen</p>
+                  <p>• Multifunktionslenkrad</p>
+                  <p>• Elektrische Fensterheber</p>
+                  <p>• Elektrische & beheizbare Außenspiegel</p>
+                  <p>• Keyless Zentralverriegelung</p>
+                  <p>• Park-Assistent (Active Park Assist)</p>
+                  <p>• Berganfahr-Assistent</p>
+                  <p>• Notbrems-Assistent</p>
+                  <p>• Start/Stopp-Automatik</p>
+                  <p>• Winterpaket</p>
+                  <p>• Nebelscheinwerfer</p>
+                  <p>• Tagfahrlicht</p>
+                  <p>• Dachreling</p>
+                  <p>• Leichtmetallfelgen</p>
+                  <p>• Anhängelast gebremst: 2.100 kg</p>
+                  <p>• Euro 6 / Umweltplakette Grün</p>
+                  <p>• HU bis 07/2027</p>
+                  <p>• Sommerreifen</p>
+                  <p>• Bordcomputer</p>
+                  <p>• CD-Spieler</p>
+                  <p>• Servolenkung</p>
+                </>
+              )}
+            </div>
 
             <div className="mt-10">
               <button

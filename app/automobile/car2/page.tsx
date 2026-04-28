@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function Car3Page() {
+export default function Car2Page() {
   const images = [
     "/cars/car2/car2.1.avif",
     "/cars/car2/car2.2.avif",
@@ -107,28 +107,28 @@ export default function Car3Page() {
                   </button>
                 </div>
 
-     <div className="relative p-4">
-  <div className="flex gap-3 overflow-x-auto scroll-smooth no-scrollbar">
-    {images.map((image, index) => (
-      <button
-        key={index}
-        type="button"
-        onClick={() => setCurrentImage(index)}
-        className={`flex-shrink-0 rounded-2xl overflow-hidden border-2 transition ${
-          currentImage === index
-            ? "border-red-600"
-            : "border-transparent hover:border-red-300"
-        }`}
-      >
-        <img
-          src={image}
-          alt={`Citroën C3 ${index + 1}`}
-          className="w-[140px] h-[90px] md:w-[160px] md:h-[100px] object-cover"
-        />
-      </button>
-    ))}
-  </div>
-</div>
+                <div className="px-3 sm:px-4 py-4">
+                  <div className="flex gap-3 sm:gap-4 overflow-x-auto scroll-smooth no-scrollbar pb-1">
+                    {images.map((image, index) => (
+                      <button
+                        key={index}
+                        type="button"
+                        onClick={() => setCurrentImage(index)}
+                        className={`flex-shrink-0 rounded-2xl overflow-hidden border-2 transition duration-300 ${
+                          currentImage === index
+                            ? "border-red-600"
+                            : "border-transparent hover:border-red-300"
+                        }`}
+                      >
+                        <img
+                          src={image}
+                          alt={`Opel Zafira Life ${index + 1}`}
+                          className="w-[148px] h-[96px] md:w-[168px] md:h-[108px] object-cover transition-transform duration-300 hover:scale-[1.03]"
+                        />
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -137,7 +137,9 @@ export default function Car3Page() {
                 <h1 className="text-3xl md:text-4xl font-bold text-black">
                   Opel Zafira Life
                 </h1>
-                <p className="text-gray-500 text-lg md:text-xl mt-2">Elegance M</p>
+                <p className="text-gray-500 text-lg md:text-xl mt-2">
+                  Elegance M
+                </p>
 
                 <p className="text-red-600 text-3xl md:text-4xl font-bold mt-8">
                   19.900 €
@@ -186,57 +188,58 @@ export default function Car3Page() {
             </h2>
 
             <p className="text-gray-600 mt-5 md:mt-6 text-base md:text-lg leading-relaxed">
-              Gepflegter Opel Zafira Life Elegance mit Automatikgetriebe, großem Raumangebot
-              und sehr guter Ausstattung. Das Fahrzeug ist technisch in gutem Zustand,
-              geprüft und sofort verfügbar. Ideal als Familienfahrzeug, Shuttle,
-              Geschäftswagen oder für lange Reisen mit maximalem Komfort.
+              Gepflegter Opel Zafira Life Elegance mit Automatikgetriebe, großem
+              Raumangebot und sehr guter Ausstattung. Das Fahrzeug ist technisch
+              in gutem Zustand, geprüft und sofort verfügbar. Ideal als
+              Familienfahrzeug, Shuttle, Geschäftswagen oder für lange Reisen
+              mit maximalem Komfort.
             </p>
 
-           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mt-8 md:mt-10 text-gray-700">
-  <p>• Navigationssystem Multimedia Navi Pro</p>
-  <p>• Rückfahrkamera mit 180° Umgebungsansicht</p>
-  <p>• Sitzheizung vorne</p>
-  <p>• Tempomat</p>
-  <p>• Klimaautomatik (2-Zonen)</p>
-  <p>• 8-Gang Automatikgetriebe</p>
-  <p>• 8-Sitzer mit 3. Sitzreihe</p>
-  <p>• Panorama-Glasdach</p>
-  <p>• Head-Up Display</p>
-  <p>• Massagesitze vorne</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mt-8 md:mt-10 text-gray-700">
+              <p>• Navigationssystem Multimedia Navi Pro</p>
+              <p>• Rückfahrkamera mit 180° Umgebungsansicht</p>
+              <p>• Sitzheizung vorne</p>
+              <p>• Tempomat</p>
+              <p>• Klimaautomatik (2-Zonen)</p>
+              <p>• 8-Gang Automatikgetriebe</p>
+              <p>• 8-Sitzer mit 3. Sitzreihe</p>
+              <p>• Panorama-Glasdach</p>
+              <p>• Head-Up Display</p>
+              <p>• Massagesitze vorne</p>
 
-  {showMore && (
-    <>
-      <p>• Bi-Xenon Scheinwerfer</p>
-      <p>• Adaptives Kurvenlicht</p>
-      <p>• Spurhalteassistent</p>
-      <p>• Verkehrszeichenerkennung</p>
-      <p>• Abstandswarner</p>
-      <p>• Berganfahrassistent</p>
-      <p>• Anhängerkupplung abnehmbar</p>
-      <p>• Elektrische Schiebetüren links & rechts</p>
-      <p>• Elektrische Sitzeinstellung</p>
-      <p>• Elektrische Fensterheber</p>
-      <p>• Elektrische Außenspiegel</p>
-      <p>• Innenspiegel automatisch abblendend</p>
-      <p>• Regensensor</p>
-      <p>• Leichtmetallfelgen</p>
-      <p>• Abgedunkelte Scheiben</p>
-      <p>• Bluetooth / DAB Radio</p>
-      <p>• Lederlenkrad</p>
-      <p>• Multifunktionslenkrad</p>
-      <p>• ISOFIX Kindersitzbefestigung</p>
-      <p>• Start/Stopp-Automatik</p>
-      <p>• Partikelfilter + AdBlue</p>
-      <p>• Frontantrieb</p>
-      <p>• Scheckheftgepflegt</p>
-      <p>• Inspektion neu</p>
-      <p>• Standheizung mit Funkfernbedienung</p>
-      <p>• HiFi Soundsystem mit Subwoofer</p>
-      <p>• Parkpilot vorne & hinten</p>
-      <p>• Solar-Protect Wärmeschutzverglasung</p>
-    </>
-  )}
-</div>
+              {showMore && (
+                <>
+                  <p>• Bi-Xenon Scheinwerfer</p>
+                  <p>• Adaptives Kurvenlicht</p>
+                  <p>• Spurhalteassistent</p>
+                  <p>• Verkehrszeichenerkennung</p>
+                  <p>• Abstandswarner</p>
+                  <p>• Berganfahrassistent</p>
+                  <p>• Anhängerkupplung abnehmbar</p>
+                  <p>• Elektrische Schiebetüren links & rechts</p>
+                  <p>• Elektrische Sitzeinstellung</p>
+                  <p>• Elektrische Fensterheber</p>
+                  <p>• Elektrische Außenspiegel</p>
+                  <p>• Innenspiegel automatisch abblendend</p>
+                  <p>• Regensensor</p>
+                  <p>• Leichtmetallfelgen</p>
+                  <p>• Abgedunkelte Scheiben</p>
+                  <p>• Bluetooth / DAB Radio</p>
+                  <p>• Lederlenkrad</p>
+                  <p>• Multifunktionslenkrad</p>
+                  <p>• ISOFIX Kindersitzbefestigung</p>
+                  <p>• Start/Stopp-Automatik</p>
+                  <p>• Partikelfilter + AdBlue</p>
+                  <p>• Frontantrieb</p>
+                  <p>• Scheckheftgepflegt</p>
+                  <p>• Inspektion neu</p>
+                  <p>• Standheizung mit Funkfernbedienung</p>
+                  <p>• HiFi Soundsystem mit Subwoofer</p>
+                  <p>• Parkpilot vorne & hinten</p>
+                  <p>• Solar-Protect Wärmeschutzverglasung</p>
+                </>
+              )}
+            </div>
 
             <div className="mt-10">
               <button
@@ -333,7 +336,7 @@ export default function Car3Page() {
 
           <img
             src={images[currentImage]}
-            alt="Ford Kuga groß"
+            alt="Opel Zafira Life groß"
             className="max-w-[92vw] max-h-[88vh] object-contain rounded-2xl shadow-2xl"
           />
 

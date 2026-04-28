@@ -119,18 +119,11 @@ export default function Car3Page() {
                 </div>
 
                 <div className="relative p-4">
-                  <button
-                    type="button"
-                    onClick={scrollLeft}
-                    className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center text-xl font-bold hover:shadow-xl transition"
-                    aria-label="Nach links scrollen"
-                  >
-                    ‹
-                  </button>
+
 
                   <div
                     ref={sliderRef}
-                    className="flex gap-3 overflow-x-auto scroll-smooth no-scrollbar px-14"
+                    className="flex gap-3 overflow-x-auto scroll-smooth no-scrollbar "
                   >
                     {images.map((image, index) => (
                       <button
@@ -152,14 +145,7 @@ export default function Car3Page() {
                     ))}
                   </div>
 
-                  <button
-                    type="button"
-                    onClick={scrollRight}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center text-xl font-bold hover:shadow-xl transition"
-                    aria-label="Nach rechts scrollen"
-                  >
-                    ›
-                  </button>
+
                 </div>
               </div>
             </div>

@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export default function Car3Page() {
   const images = [
-   "/cars/car5/car5.1.avif",
+    "/cars/car5/car5.1.avif",
     "/cars/car5/car5.2.webp",
     "/cars/car5/car5.3.avif",
     "/cars/car5/car5.4.avif",
@@ -17,8 +17,6 @@ export default function Car3Page() {
     "/cars/car5/car5.11.avif",
     "/cars/car5/car5.12.avif",
     "/cars/car5/car5.13.avif",
-
-    
   ];
 
   const [currentImage, setCurrentImage] = useState(0);
@@ -81,7 +79,7 @@ export default function Car3Page() {
                 <div className="relative group">
                   <img
                     src={images[currentImage]}
-                    alt="Opel Zafira Life"
+                    alt="Ford EcoSport"
                     className="w-full h-[320px] sm:h-[420px] lg:h-[520px] object-cover cursor-pointer"
                     onClick={() => setIsOpen(true)}
                   />
@@ -104,28 +102,29 @@ export default function Car3Page() {
                     ›
                   </button>
                 </div>
-<div className="relative p-4">
-  <div className="flex gap-3 overflow-x-auto scroll-smooth no-scrollbar">
-    {images.map((image, index) => (
-      <button
-        key={index}
-        type="button"
-        onClick={() => setCurrentImage(index)}
-        className={`flex-shrink-0 rounded-2xl overflow-hidden border-2 transition ${
-          currentImage === index
-            ? "border-red-600"
-            : "border-transparent hover:border-red-300"
-        }`}
-      >
-        <img
-          src={image}
-          alt={`Citroën C3 ${index + 1}`}
-          className="w-[140px] h-[90px] md:w-[160px] md:h-[100px] object-cover"
-        />
-      </button>
-    ))}
-  </div>
-</div>
+
+                <div className="relative p-4">
+                  <div className="flex gap-3 overflow-x-auto scroll-smooth no-scrollbar">
+                    {images.map((image, index) => (
+                      <button
+                        key={index}
+                        type="button"
+                        onClick={() => setCurrentImage(index)}
+                        className={`flex-shrink-0 rounded-2xl overflow-hidden border-2 transition ${
+                          currentImage === index
+                            ? "border-red-600"
+                            : "border-transparent hover:border-red-300"
+                        }`}
+                      >
+                        <img
+                          src={image}
+                          alt={`Ford EcoSport ${index + 1}`}
+                          className="w-[140px] h-[90px] md:w-[160px] md:h-[100px] object-cover"
+                        />
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -134,29 +133,31 @@ export default function Car3Page() {
                 <h1 className="text-3xl md:text-4xl font-bold text-black">
                   Ford EcoSport
                 </h1>
-               <p className="text-gray-500 text-lg md:text-xl mt-2">ST-Line</p>
+                <p className="text-gray-500 text-lg md:text-xl mt-2">
+                  ST-Line
+                </p>
 
-<p className="text-red-600 text-3xl md:text-4xl font-bold mt-8">
-  14.950 €
-</p>
+                <p className="text-red-600 text-3xl md:text-4xl font-bold mt-8">
+                  14.950 €
+                </p>
 
-<div className="space-y-4 mt-8 text-gray-700">
-  <p>
-    <strong>Kilometerstand:</strong> 96.000 km
-  </p>
-  <p>
-    <strong>Erstzulassung:</strong> 04/2019
-  </p>
-  <p>
-    <strong>Kraftstoff:</strong> Benzin
-  </p>
-  <p>
-    <strong>Getriebe:</strong> Automatik
-  </p>
-  <p>
-    <strong>Leistung:</strong> 92 kW (125 PS)
-  </p>
-</div>
+                <div className="space-y-4 mt-8 text-gray-700">
+                  <p>
+                    <strong>Kilometerstand:</strong> 96.000 km
+                  </p>
+                  <p>
+                    <strong>Erstzulassung:</strong> 04/2019
+                  </p>
+                  <p>
+                    <strong>Kraftstoff:</strong> Benzin
+                  </p>
+                  <p>
+                    <strong>Getriebe:</strong> Automatik
+                  </p>
+                  <p>
+                    <strong>Leistung:</strong> 92 kW (125 PS)
+                  </p>
+                </div>
 
                 <a
                   href="tel:+4915203799152"
@@ -182,55 +183,54 @@ export default function Car3Page() {
               Ausstattung & Beschreibung
             </h2>
 
-        <p className="text-gray-600 mt-5 md:mt-6 text-base md:text-lg leading-relaxed">
-  Gepflegter Ford EcoSport ST-Line mit Automatikgetriebe, sportlicher
-  Ausstattung und zuverlässigem Benzinmotor. Das Fahrzeug ist technisch in
-  gutem Zustand, geprüft und sofort verfügbar. Ideal als kompakter SUV für
-  Alltag, Stadtverkehr und längere Fahrten mit hohem Komfort.
-</p>
+            <p className="text-gray-600 mt-5 md:mt-6 text-base md:text-lg leading-relaxed">
+              Gepflegter Ford EcoSport ST-Line mit Automatikgetriebe, sportlicher
+              Ausstattung und zuverlässigem Benzinmotor. Das Fahrzeug ist technisch in
+              gutem Zustand, geprüft und sofort verfügbar. Ideal als kompakter SUV für
+              Alltag, Stadtverkehr und längere Fahrten mit hohem Komfort.
+            </p>
 
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mt-8 md:mt-10 text-gray-700">
+              <p>• Navigationssystem Ford AppLink</p>
+              <p>• Einparkhilfe hinten</p>
+              <p>• Sitzheizung vorne</p>
+              <p>• Tempomat</p>
+              <p>• Klimaanlage</p>
+              <p>• Automatikgetriebe</p>
+              <p>• Sportsitze</p>
+              <p>• Schiebedach</p>
+              <p>• Teilleder Ausstattung</p>
+              <p>• Keyless Zentralverriegelung</p>
 
-<div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mt-8 md:mt-10 text-gray-700">
-  <p>• Navigationssystem Ford AppLink</p>
-  <p>• Einparkhilfe hinten</p>
-  <p>• Sitzheizung vorne</p>
-  <p>• Tempomat</p>
-  <p>• Klimaanlage</p>
-  <p>• Automatikgetriebe</p>
-  <p>• Sportsitze</p>
-  <p>• Schiebedach</p>
-  <p>• Teilleder Ausstattung</p>
-  <p>• Keyless Zentralverriegelung</p>
-
-  {showMore && (
-    <>
-      <p>• ABS / ESP / ASR</p>
-      <p>• ISOFIX Kindersitzbefestigung</p>
-      <p>• Multifunktionslenkrad</p>
-      <p>• Elektrische Fensterheber</p>
-      <p>• Elektrische & beheizbare Außenspiegel</p>
-      <p>• Frontantrieb</p>
-      <p>• Bordcomputer</p>
-      <p>• Alarmanlage</p>
-      <p>• Regensensor</p>
-      <p>• Sportpaket</p>
-      <p>• Winterpaket</p>
-      <p>• Nebelscheinwerfer</p>
-      <p>• Tagfahrlicht</p>
-      <p>• Dachreling schwarz</p>
-      <p>• Leichtmetallfelgen</p>
-      <p>• Start/Stopp-Automatik</p>
-      <p>• Notbrems-Assistent</p>
-      <p>• Berganfahr-Assistent</p>
-      <p>• Zahnriemen neu</p>
-      <p>• Inspektion neu</p>
-      <p>• HU Neu</p>
-      <p>• Euro 6d-TEMP / Umweltplakette Grün</p>
-      <p>• Scheckheftgepflegt</p>
-      <p>• Anhängelast gebremst: 900 kg</p>
-    </>
-  )}
-</div>
+              {showMore && (
+                <>
+                  <p>• ABS / ESP / ASR</p>
+                  <p>• ISOFIX Kindersitzbefestigung</p>
+                  <p>• Multifunktionslenkrad</p>
+                  <p>• Elektrische Fensterheber</p>
+                  <p>• Elektrische & beheizbare Außenspiegel</p>
+                  <p>• Frontantrieb</p>
+                  <p>• Bordcomputer</p>
+                  <p>• Alarmanlage</p>
+                  <p>• Regensensor</p>
+                  <p>• Sportpaket</p>
+                  <p>• Winterpaket</p>
+                  <p>• Nebelscheinwerfer</p>
+                  <p>• Tagfahrlicht</p>
+                  <p>• Dachreling schwarz</p>
+                  <p>• Leichtmetallfelgen</p>
+                  <p>• Start/Stopp-Automatik</p>
+                  <p>• Notbrems-Assistent</p>
+                  <p>• Berganfahr-Assistent</p>
+                  <p>• Zahnriemen neu</p>
+                  <p>• Inspektion neu</p>
+                  <p>• HU Neu</p>
+                  <p>• Euro 6d-TEMP / Umweltplakette Grün</p>
+                  <p>• Scheckheftgepflegt</p>
+                  <p>• Anhängelast gebremst: 900 kg</p>
+                </>
+              )}
+            </div>
 
             <div className="mt-10">
               <button
@@ -327,7 +327,7 @@ export default function Car3Page() {
 
           <img
             src={images[currentImage]}
-            alt="Ford Kuga groß"
+            alt="Ford EcoSport groß"
             className="max-w-[92vw] max-h-[88vh] object-contain rounded-2xl shadow-2xl"
           />
 
