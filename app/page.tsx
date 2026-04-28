@@ -332,6 +332,8 @@ setFeaturedCars(data || []);
       sofortiger Verfügbarkeit direkt in Nordhorn.
     </p>
 
+
+
     <p className="text-gray-500 mt-4 text-base">
       #{featuredCars.length} Fahrzeuge aktuell verfügbar
     </p>
