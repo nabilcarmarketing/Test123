@@ -1,6 +1,9 @@
 export default function Footer() {
   return (
-    <footer className="bg-gray-100 border-t border-gray-200 py-16 md:py-20 px-4 md:px-6 mt-20 md:mt-24">
+    
+
+    <footer id="kontakt"
+    className="bg-gray-100 border-t border-gray-200 py-16 md:py-20 px-4 md:px-6 mt-20 md:mt-24">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
         <div>
           <h3 className="text-2xl font-bold text-red-600 mb-5">Adresse</h3>
@@ -55,9 +58,16 @@ export default function Footer() {
             >
               Reifen-Anfrage
             </a>
+            <a
+              href="/admin/login"
+              className="text-gray-700 hover:text-red-600 transition font-medium"
+            >
+              Mitarbeiter Portal
+            </a>
           </div>
         </div>
       </div>
+      
     </footer>
   );
 }

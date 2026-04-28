@@ -52,6 +52,8 @@ export default function ImpressumPage() {
                 <br />
                 Nabil Mislim
               </p>
+              <p className="text-gray-700 leading-relaxed">
+                Telefon: +49 152 540728                   </p>
             </section>
 
             <section className="bg-gray-50 rounded-3xl border border-gray-200 p-6 md:p-8 shadow-sm">

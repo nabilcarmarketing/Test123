@@ -3,8 +3,39 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Footer from "@/components/Footer";
 import HeaderHome from "@/components/HeaderHome";
+import { useEffect, useState } from "react";
+import { supabase } from "@/lib/supabase";
 
-export default function Home() {
+export default function Home() 
+{ const [featuredCars, setFeaturedCars] = useState<any[]>([]);
+useEffect(() => {
+  const fetchFeaturedCars = async () => {
+    const { data, error } = await supabase
+      .from("cars")
+      .select(`
+      *,
+      car_images (
+      image_url
+      )
+      `)
+      .eq("featured", true)
+      .eq("sold", false)
+      .order("id", { ascending: false });
+console.log("FEATURED DATA:", data);
+console.log("FEATURED ERROR:", error);
+
+if (error) {
+  console.log("FEATURED CARS ERROR:", error);
+  return;
+}
+
+setFeaturedCars(data || []);
+  };
+
+  fetchFeaturedCars();
+}, []);
+
+
   return (
     <main className="min-h-screen bg-white text-black">
       {/* Top Info Bar */}
@@ -300,53 +331,14 @@ export default function Home() {
       sofortiger Verfügbarkeit direkt in Nordhorn.
     </p>
 
+    <p className="text-gray-500 mt-4 text-base">
+      #{featuredCars.length} Fahrzeuge aktuell verfügbar
+    </p>
+
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center mt-14">
-      {[
-        {
-          name: "Ford Kuga ST-Line",
-          details: "12/2018 • Diesel • Automatik • 297.000 km",
-          price: "9.450 €",
-          link: "/automobile/car1",
-          image: "/cars/car1/car1.2.avif",
-        },
-        {
-          name: "Opel Zafira Life",
-          details: "11/2020 • Diesel • Automatik • 209.000 km",
-          price: "19.900 €",
-          link: "/automobile/car2",
-          image: "/cars/car2/car2.1.avif",
-        },
-        {
-          name: "Ford Focus",
-          details: "05/2016 • Benzin • Schaltgetriebe • 160.000 km",
-          price: "5.950 €",
-          link: "/automobile/car3",
-          image: "/cars/car3/car3.3.avif",
-        },
-        {
-          name: "Opel Insignia B Sports",
-          details: "09/2018 • Diesel • Automatik • 172.000 km",
-          price: "10.950 €",
-          link: "/automobile/car4",
-          image: "/cars/car4/car4.1.avif",
-        },
-        {
-          name: "Ford EcoSport",
-          details: "04/2019 • Benzin • Automatik • 96.000 km",
-          price: "11.950 €",
-          link: "/automobile/car5",
-          image: "/cars/car5/car5.1.avif",
-        },
-        {
-          name: "Citroën C3",
-          details: "06/2010 • Benzin • Schaltgetriebe • 57.000 km",
-          price: "5.950 €",
-          link: "/automobile/car6",
-          image: "/cars/car6/car6.1.avif",
-        },
-      ].map((car) => (
+      {featuredCars.map((car) => (
         <motion.div
-          key={car.name}
+          key={car.id}
           whileHover={{ y: -6 }}
           transition={{
             duration: 0.35,
@@ -355,18 +347,18 @@ export default function Home() {
           className="bg-white rounded-3xl border border-gray-100 shadow-lg overflow-hidden hover:shadow-xl transition w-full max-w-[380px]"
         >
           <img
-            src={car.image}
-            alt={car.name}
+            src="/placeholder.jpg"
+            alt={car.title}
             className="w-full h-56 object-cover"
           />
 
           <div className="p-8">
             <h3 className="text-2xl font-bold leading-tight">
-              {car.name}
+              {car.title}
             </h3>
 
             <p className="text-gray-600 mt-3 text-base leading-relaxed">
-              {car.details}
+              {car.first_registration} • {car.fuel} • {car.transmission} • {car.mileage}
             </p>
 
             <p className="text-red-600 text-2xl font-bold mt-5">
@@ -374,7 +366,7 @@ export default function Home() {
             </p>
 
             <motion.a
-              href={car.link}
+              href={`/fahrzeuge/${car.id}`}
               whileHover={{ y: -2 }}
               transition={{ duration: 0.3 }}
               className="mt-6 inline-block bg-red-600 hover:bg-red-700 transition text-white px-6 py-3 rounded-xl font-semibold"
