@@ -1,12 +1,12 @@
-import { createClient } from "@supabase/supabase-js";
+import { createBrowserClient } from "@supabase/ssr";
 
-const supabaseUrl =
-  "https://utipkfkcllfthtslqk.supabase.co";
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-const supabaseAnonKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV1dGlwa2Zqa2NsbGZ0aHRzbHFrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzczODA1ODcsImV4cCI6MjA5Mjk1NjU4N30.4nnSICuJRzBxilsrNfxP1TvX7EzTtpoifZcoQNbU6h0";
+if (!supabaseUrl || !supabaseAnonKey) {
+  throw new Error(
+    "Missing NEXT_PUBLIC_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_ANON_KEY"
+  );
+}
 
-export const supabase = createClient(
-  supabaseUrl,
-  supabaseAnonKey
-);
+export const supabase = createBrowserClient(supabaseUrl, supabaseAnonKey);
