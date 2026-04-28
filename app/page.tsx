@@ -20,6 +20,7 @@ useEffect(() => {
       `)
       .eq("featured", true)
       .eq("sold", false)
+      .limit(6)
       .order("id", { ascending: false });
 console.log("FEATURED DATA:", data);
 console.log("FEATURED ERROR:", error);
@@ -233,7 +234,7 @@ setFeaturedCars(data || []);
       Seit über 25 Jahren steht Nabil Car in Nordhorn für zuverlässigen
       Gebrauchtwagenhandel und persönliche Beratung.
       Als familiengeführter Betrieb legen wir Wert auf faire Preise,
-      ehrliche Beratung und langfristige Kundenzufriedenheit.
+      kompetente Beratung und langfristige Kundenzufriedenheit.
       Unsere Fahrzeuge werden vor dem Verkauf sorgfältig geprüft,
       technisch vorbereitet und professionell aufbereitet.
     </p>
@@ -347,7 +348,7 @@ setFeaturedCars(data || []);
           className="bg-white rounded-3xl border border-gray-100 shadow-lg overflow-hidden hover:shadow-xl transition w-full max-w-[380px]"
         >
           <img
-            src="/placeholder.jpg"
+            src={car.cover_image || "/placeholder.jpg"}
             alt={car.title}
             className="w-full h-56 object-cover"
           />

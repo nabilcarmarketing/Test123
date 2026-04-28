@@ -27,9 +27,13 @@ export default function AdminPage() {
     equipment: "",
     description: "",
     status: "Verfügbar",
+    featured: false,
+    sold: false,
   });
 
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+  const [previewImage, setPreviewImage] = useState<string | null>(null);
+  const [editingCarId, setEditingCarId] = useState<number | null>(null);
 
   const logout = async () => {
     await supabase.auth.signOut();
@@ -39,7 +43,13 @@ export default function AdminPage() {
   const fetchCars = async () => {
     const { data, error } = await supabase
       .from("cars")
-      .select("*")
+      .select(`
+      *,
+      car_images (
+      id,
+      image_url
+      )
+      `)
       .order("id", { ascending: false });
 
     if (error) {
@@ -54,43 +64,103 @@ export default function AdminPage() {
     fetchCars();
   }, []);
 
-  const uploadImages = async (carId: number) => {
-    if (!selectedFiles.length) return;
 
-    for (const file of selectedFiles) {
-      const fileName = `${Date.now()}-${file.name}`;
+const uploadImages = async (carId: number) => {
+  if (!selectedFiles.length) return;
 
-      const { error: uploadError } = await supabase.storage
-        .from("car_images")
-        .upload(fileName, file);
+  let firstImageUrl = "";
 
-      if (uploadError) {
-        console.log("UPLOAD ERROR:", uploadError);
-        continue;
-      }
+  for (let i = 0; i < selectedFiles.length; i++) {
+    const file = selectedFiles[i];
+    const fileName = `${Date.now()}-${file.name}`;
 
-      const { data: publicData } = supabase.storage
-        .from("car_images")
-        .getPublicUrl(fileName);
+    const { error: uploadError } = await supabase.storage
+      .from("car_images")
+      .upload(fileName, file);
 
-      const { error: imageInsertError } = await supabase.from("car_images").insert([
-        {
-          car_id: carId,
-          image_url: publicData.publicUrl,
-        },
-      ]);
-
-      if (imageInsertError) {
-        console.log("IMAGE INSERT ERROR:", imageInsertError);
-      }
+    if (uploadError) {
+      console.log("UPLOAD ERROR:", uploadError);
+      continue;
     }
+
+    const { data: publicData } = supabase.storage
+      .from("car_images")
+      .getPublicUrl(fileName);
+
+    const imageUrl = publicData.publicUrl;
+
+    if (i === 0) {
+      firstImageUrl = imageUrl;
+    }
+
+    await supabase.from("car_images").insert([
+      {
+        car_id: carId,
+        image_url: imageUrl,
+      },
+    ]);
+  }
+
+  if (firstImageUrl) {
+    await supabase
+      .from("cars")
+      .update({
+        cover_image: firstImageUrl,
+      })
+      .eq("id", carId);
+  }
   };
 
   const addCar = async () => {
-    if (!newCar.title || !newCar.price) {
-      console.log("Pflichtfelder fehlen");
-      return;
-    }
+   if (editingCarId) {
+  const { error } = await supabase
+    .from("cars")
+    .update({
+      title: newCar.title,
+      subtitle: newCar.subtitle,
+      price: newCar.price,
+      mileage: newCar.mileage,
+      first_registration: newCar.first_registration,
+      fuel: newCar.fuel,
+      transmission: newCar.transmission,
+      power: newCar.power,
+      equipment: newCar.equipment,
+      description: newCar.description,
+      status: newCar.status,
+      featured: newCar.featured,
+      sold: newCar.sold,
+    })
+    .eq("id", editingCarId);
+
+  if (error) {
+    console.log("UPDATE ERROR:", error);
+    return;
+  }
+if (selectedFiles.length > 0) {
+  await uploadImages(editingCarId);
+}
+  setEditingCarId(null);
+  setSelectedFiles([]);
+  fetchCars();
+
+  setNewCar({
+    title: "",
+    subtitle: "",
+    price: "",
+    mileage: "",
+    first_registration: "",
+    fuel: "",
+    transmission: "",
+    power: "",
+    equipment: "",
+    description: "",
+    status: "Verfügbar",
+    featured: false,
+    sold: false,
+  });
+
+  return;
+}
 
     const { data, error } = await supabase
       .from("cars")
@@ -134,11 +204,38 @@ export default function AdminPage() {
       equipment: "",
       description: "",
       status: "Verfügbar",
+      featured: false,
+      sold: false,
     });
 
     setSelectedFiles([]);
     fetchCars();
   };
+ 
+const handleEdit = (car: any) => {
+  setEditingCarId(car.id);
+
+  setNewCar({
+    title: car.title || "",
+    subtitle: car.subtitle || "",
+    price: car.price || "",
+    mileage: car.mileage || "",
+    first_registration: car.first_registration || "",
+    fuel: car.fuel || "",
+    transmission: car.transmission || "",
+    power: car.power || "",
+    equipment: car.equipment || "",
+    description: car.description || "",
+    status: car.status || "Verfügbar",
+    featured: car.featured || false,
+    sold: car.sold || false,
+  });
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
 
   const removeCar = async (id: number) => {
     await supabase.from("car_images").delete().eq("car_id", id);
@@ -312,6 +409,79 @@ export default function AdminPage() {
                     <p className="text-sm text-green-600 font-medium mt-2">
                       {car.status}
                     </p>
+                  
+
+<div className="flex gap-4 overflow-x-auto mt-4 pb-3">
+  {car.car_images?.map((image: any) => (
+    <div
+      key={image.id}
+      className="flex-shrink-0"
+    >
+      <div className="relative group">
+        <img
+          src={image.image_url}
+          alt="Fahrzeugbild"
+          onClick={() => setPreviewImage(image.image_url)}
+          className={`w-32 h-24 object-cover rounded-xl border-2 cursor-pointer transition ${
+            car.cover_image === image.image_url
+              ? "border-red-600"
+              : "border-gray-200"
+          }`}
+        />
+
+        {/* Stern oben links */}
+        <button
+   type="button"
+  onClick={async () => {
+    const { error } = await supabase
+      .from("cars")
+      .update({
+        cover_image: image.image_url,
+      })
+      .eq("id", car.id);
+
+    if (error) {
+      console.log("COVER IMAGE ERROR:", error);
+      return;
+    }
+
+    fetchCars();
+  }}
+  className={`absolute top-2 left-2 w-7 h-7 rounded-full flex items-center justify-center text-sm transition backdrop-blur-sm opacity-0 group-hover:opacity-100 ${
+    car.cover_image === image.image_url
+      ? "bg-yellow-400 text-white opacity-100"
+      : "bg-black/40 text-white hover:bg-black/60"
+  }`}
+>
+  ★
+</button>
+
+        {/* Löschen unten rechts */}
+        <button
+          type="button"
+          onClick={async () => {
+            const { error } = await supabase
+              .from("car_images")
+              .delete()
+              .eq("id", image.id);
+
+            if (error) {
+              console.log("DELETE IMAGE ERROR:", error);
+              return;
+            }
+
+            fetchCars();
+          }}
+          className="absolute bottom-2 right-2 bg-red-600 hover:bg-red-700 text-white text-xs px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition"
+        >
+          Löschen
+        </button>
+      </div>
+    </div>
+  ))}
+</div>
+
+
 <label className="flex items-center gap-3 mt-4">
   <input
     type="checkbox"
@@ -333,7 +503,11 @@ export default function AdminPage() {
     }}
   />
   <span>Auf Startseite anzeigen</span>
+<p></p>
 </label>
+
+
+
                     <label className="flex items-center gap-3 mt-4">
                       <input
                         type="checkbox"
@@ -344,6 +518,16 @@ export default function AdminPage() {
                       />
                       <span>Als verkauft markieren</span>
                     </label>
+          
+
+          <Button
+                className="rounded-xl bg-red-600 hover:bg-gray-800 text-white"
+                onClick={() => handleEdit(car)}
+          >
+            Bearbeiten
+            </Button>
+
+
                   </div>
 
                   <Button
@@ -353,12 +537,30 @@ export default function AdminPage() {
                   >
                     Löschen
                   </Button>
+
                 </CardContent>
               </Card>
             ))}
           </div>
         </div>
       </main>
+      {previewImage && (
+  <div className="fixed inset-0 z-[999] bg-black/90 flex items-center justify-center">
+    <button
+      type="button"
+      onClick={() => setPreviewImage(null)}
+      className="absolute top-6 right-6 text-white text-4xl font-bold"
+    >
+      ×
+    </button>
+
+    <img
+      src={previewImage}
+      alt="Vorschau"
+      className="max-w-[90vw] max-h-[85vh] object-contain rounded-2xl"
+    />
+  </div>
+)}
     </>
   );
 }

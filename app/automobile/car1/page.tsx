@@ -124,21 +124,40 @@ export default function Car1Page() {
                   </p>
                 </div>
 
-                <a
-                  href="tel:+4915203799152"
-                  className="mt-10 block bg-red-600 hover:bg-red-700 transition text-white text-center px-6 py-4 rounded-xl font-semibold"
-                >
-                  Direkt anfragen
-                </a>
+                <div className="mt-10 space-y-4">
+  <a
+    href="tel:+4915203799152"
+    className="block bg-red-600 hover:bg-red-700 transition text-white text-center px-6 py-4 rounded-xl font-semibold"
+  >
+    Direkt anrufen
+  </a>
 
-                <a
-                  href="https://home.mobile.de/home/vip?sb=ml&od=down&customerId=468257&vc=Car&ref=srp&searchId=3abd079b-9805-cd1e-f5c2-d7e76e312355&id=450748720"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 block border border-gray-300 hover:border-red-600 transition text-center px-6 py-4 rounded-xl font-semibold text-black"
-                >
-                  Auf mobile.de ansehen
-                </a>
+  <a
+    href="https://wa.me/4915203799152"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="block border border-green-500 hover:bg-green-50 transition text-center px-6 py-4 rounded-xl font-semibold text-black"
+  >
+    WhatsApp Anfrage
+  </a>
+
+  <a
+    href="https://home.mobile.de/home/vip?sb=ml&od=down&customerId=468257&vc=Car"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="block border border-gray-300 hover:border-red-600 transition text-center px-6 py-4 rounded-xl font-semibold text-black"
+  >
+    Auf mobile.de ansehen
+  </a>
+</div>
+
+<div className="mt-8 pt-8 border-t border-gray-200 space-y-3 text-sm text-gray-700">
+  <p>✓ Fahrzeug geprüft</p>
+  <p>✓ Sofort verfügbar</p>
+  <p>✓ Probefahrt möglich</p>
+  <p>✓ Inzahlungnahme möglich</p>
+  <p>✓ Finanzierung auf Anfrage</p>
+</div>
               </div>
             </div>
           </div>
