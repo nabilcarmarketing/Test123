@@ -64,7 +64,7 @@ export default function AdminPage() {
         .getPublicUrl(fileName);
 
       const { error: imageInsertError } = await supabase
-        .from("car_images")
+        .from("Car.Images")
         .insert([
           {
             car_id: carId,
