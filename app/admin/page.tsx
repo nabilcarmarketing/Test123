@@ -12,51 +12,59 @@ export default function AdminPage() {
 
   const [newCar, setNewCar] = useState({
     title: "",
+    subtitle: "",
     price: "",
     mileage: "",
+    first_registration: "",
+    fuel: "",
+    transmission: "",
+    power: "",
+    equipment: "",
+    description: "",
+    status: "Verfügbar",
   });
 
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
 
   const fetchCars = async () => {
-    const { data, error } = await supabase
+    const { data } = await supabase
       .from("cars")
       .select("*")
       .order("id", { ascending: false });
 
-    if (!error && data) {
-      setCars(data);
-    }
+    if (data) setCars(data);
   };
 
   useEffect(() => {
     fetchCars();
   }, []);
 
-  const uploadImage = async (carId: number) => {
-    if (!selectedFile) return;
+  const uploadImages = async (carId: number) => {
+    if (!selectedFiles.length) return;
 
-    const fileName = `${Date.now()}-${selectedFile.name}`;
+    for (const file of selectedFiles) {
+      const fileName = `${Date.now()}-${file.name}`;
 
-    const { error } = await supabase.storage
-      .from("car-images")
-      .upload(fileName, selectedFile);
+      const { error } = await supabase.storage
+        .from("car_images")
+        .upload(fileName, file);
 
-    if (error) {
-      console.log(error);
-      return;
+      if (error) {
+        console.log("UPLOAD ERROR:", error);
+        continue;
+      }
+
+      const { data } = supabase.storage
+        .from("car_images")
+        .getPublicUrl(fileName);
+
+      await supabase.from("car_images").insert([
+        {
+          car_id: carId,
+          image_url: data.publicUrl,
+        },
+      ]);
     }
-
-    const { data } = supabase.storage
-      .from("car-images")
-      .getPublicUrl(fileName);
-
-    await supabase.from("car_images").insert([
-      {
-        car_id: carId,
-        image_url: data.publicUrl,
-      },
-    ]);
   };
 
   const addCar = async () => {
@@ -67,34 +75,46 @@ export default function AdminPage() {
       .insert([
         {
           title: newCar.title,
-          subtitle: "",
+          subtitle: newCar.subtitle,
           price: newCar.price,
-          mileage: newCar.mileage || "-",
-          fuel: "-",
-          transmission: "-",
-          power: "-",
-          status: "Verfügbar",
+          mileage: newCar.mileage,
+          first_registration: newCar.first_registration,
+          fuel: newCar.fuel,
+          transmission: newCar.transmission,
+          power: newCar.power,
+          equipment: newCar.equipment,
+          description: newCar.description,
+          status: newCar.status,
         },
       ])
       .select()
       .single();
 
-    if (data && selectedFile) {
-      await uploadImage(data.id);
+    if (data?.id) {
+      await uploadImages(data.id);
     }
 
     setNewCar({
       title: "",
+      subtitle: "",
       price: "",
       mileage: "",
+      first_registration: "",
+      fuel: "",
+      transmission: "",
+      power: "",
+      equipment: "",
+      description: "",
+      status: "Verfügbar",
     });
 
-    setSelectedFile(null);
+    setSelectedFiles([]);
     fetchCars();
   };
 
   const removeCar = async (id: number) => {
     await supabase.from("cars").delete().eq("id", id);
+    await supabase.from("car_images").delete().eq("car_id", id);
     fetchCars();
   };
 
@@ -105,11 +125,9 @@ export default function AdminPage() {
           <p className="text-sm uppercase tracking-[0.3em] text-gray-500">
             Nabil Car Admin
           </p>
-          <h1 className="text-4xl font-bold text-black mt-2">
-            Fahrzeugverwaltung
-          </h1>
+          <h1 className="text-4xl font-bold mt-2">Fahrzeugverwaltung</h1>
           <p className="text-gray-600 mt-3">
-            Fahrzeuge hinzufügen, verwalten und entfernen.
+            Fahrzeuge komplett verwalten inklusive Galerie.
           </p>
         </div>
 
@@ -117,56 +135,62 @@ export default function AdminPage() {
           <CardContent className="p-6 space-y-6">
             <h2 className="text-2xl font-semibold">Neues Fahrzeug</h2>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="space-y-2">
-                <Label>Fahrzeugname</Label>
-                <Input
-                  placeholder="z. B. Ford Focus"
-                  value={newCar.title}
-                  onChange={(e) =>
-                    setNewCar({ ...newCar, title: e.target.value })
-                  }
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label>Preis</Label>
-                <Input
-                  placeholder="z. B. 5.950 €"
-                  value={newCar.price}
-                  onChange={(e) =>
-                    setNewCar({ ...newCar, price: e.target.value })
-                  }
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label>Kilometerstand</Label>
-                <Input
-                  placeholder="z. B. 160.000 km"
-                  value={newCar.mileage}
-                  onChange={(e) =>
-                    setNewCar({ ...newCar, mileage: e.target.value })
-                  }
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label>Fahrzeugbild</Label>
-                <Input
-                  type="file"
-                  onChange={(e) =>
-                    setSelectedFile(e.target.files?.[0] || null)
-                  }
-                />
-              </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {Object.entries({
+                title: "Fahrzeugname",
+                subtitle: "Modell / Variante",
+                price: "Preis",
+                mileage: "Kilometerstand",
+                first_registration: "Erstzulassung",
+                fuel: "Kraftstoff",
+                transmission: "Getriebe",
+                power: "Leistung",
+              }).map(([key, label]) => (
+                <div key={key} className="space-y-2">
+                  <Label>{label}</Label>
+                  <Input
+                    value={(newCar as any)[key]}
+                    onChange={(e) =>
+                      setNewCar({ ...newCar, [key]: e.target.value })
+                    }
+                  />
+                </div>
+              ))}
             </div>
 
-            <Button
-              onClick={addCar}
-              className="rounded-xl px-6 py-3 font-semibold"
-            >
-              Fahrzeug hinzufügen
+            <div className="space-y-2">
+              <Label>Ausstattung (mit Komma getrennt)</Label>
+              <Input
+                value={newCar.equipment}
+                onChange={(e) =>
+                  setNewCar({ ...newCar, equipment: e.target.value })
+                }
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label>Beschreibung</Label>
+              <Input
+                value={newCar.description}
+                onChange={(e) =>
+                  setNewCar({ ...newCar, description: e.target.value })
+                }
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label>Fahrzeugbilder (mehrere möglich)</Label>
+              <Input
+                type="file"
+                multiple
+                onChange={(e) =>
+                  setSelectedFiles(Array.from(e.target.files || []))
+                }
+              />
+            </div>
+
+            <Button onClick={addCar} className="rounded-xl px-6 py-3 font-semibold">
+              Fahrzeug speichern
             </Button>
           </CardContent>
         </Card>
@@ -174,29 +198,26 @@ export default function AdminPage() {
         <div className="grid gap-4">
           {cars.map((car) => (
             <Card key={car.id} className="rounded-3xl border shadow-sm">
-              <CardContent className="p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <CardContent className="p-6 flex flex-col gap-4 md:flex-row md:justify-between">
                 <div>
                   <h3 className="text-xl font-bold">{car.title}</h3>
-                  <p className="text-gray-600 mt-1">{car.price}</p>
+                  <p className="text-gray-600">{car.subtitle}</p>
+                  <p className="text-gray-600">{car.price}</p>
                   <p className="text-gray-600">{car.mileage}</p>
+                  <p className="text-gray-600">{car.fuel} · {car.transmission}</p>
+                  <p className="text-gray-600">{car.power}</p>
                   <p className="text-sm text-green-600 font-medium mt-2">
                     {car.status}
                   </p>
                 </div>
 
-                <div className="flex gap-3">
-                  <Button variant="outline" className="rounded-xl">
-                    Bearbeiten
-                  </Button>
-
-                  <Button
-                    variant="destructive"
-                    className="rounded-xl"
-                    onClick={() => removeCar(car.id)}
-                  >
-                    Löschen
-                  </Button>
-                </div>
+                <Button
+                  variant="destructive"
+                  className="rounded-xl"
+                  onClick={() => removeCar(car.id)}
+                >
+                  Löschen
+                </Button>
               </CardContent>
             </Card>
           ))}
