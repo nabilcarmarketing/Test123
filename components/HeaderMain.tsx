@@ -1,12 +1,6 @@
-type HeaderProps = {
-  buttonText?: string;
-  buttonLink?: string;
-};
+// components/HeaderMain.tsx
 
-export default function Header({
-  buttonText = "Zurück zu Fahrzeuge",
-  buttonLink = "/#fahrzeuge",
-}: HeaderProps) {
+export default function HeaderMain() {
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-50 text-black">
       <nav className="max-w-7xl mx-auto px-4 md:px-6 py-4 md:py-6 flex items-center justify-between gap-4">
@@ -43,10 +37,10 @@ export default function Header({
         </div>
 
         <a
-          href={buttonLink}
+          href="/"
           className="bg-red-600 hover:bg-red-700 transition text-white px-4 md:px-6 py-2.5 md:py-3 rounded-xl font-semibold shadow-lg text-sm md:text-base whitespace-nowrap"
         >
-          {buttonText}
+          Zur Startseite
         </a>
       </nav>
     </header>

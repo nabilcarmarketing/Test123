@@ -1,31 +1,11 @@
+import HeaderMain from "@/components/HeaderMain";
+
 export default function ReifenAnfragePage() {
   return (
  <>
- <header className="bg-white border-b border-gray-200 sticky top-0 z-50 text-black">
-  <nav className="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between text-black">
-    <div>
-      <h1 className="text-3xl font-bold text-red-600">
-        Nabil Car
-      </h1>
-      <p className="text-sm tracking-[0.3em] text-gray-500 uppercase">
-        Nordhorn
-      </p>
-    </div>
-          <div className="hidden md:flex gap-10 text-lg font-medium">
-            <a href="/">Startseite</a>
-            <a href="/#ueber-uns">Über uns</a>
-            <a href="/#fahrzeuge">Fahrzeuge</a>
-            <a href="/#reifen">Reifen & Felgen</a>
-            <a href="/#kontakt">Kontakt</a>
-          </div>
-    <a
-      href="/reifen-anfrage"
-      className="bg-red-600 hover:bg-red-700 transition text-white px-6 py-3 rounded-xl font-semibold"
-    >
-      Zur Hauptseite
-    </a>
-  </nav>
-</header>
+       <HeaderMain
+ />
+
 
     <main className="min-h-screen bg-white text-black px-6 py-20">
       <div className="max-w-4xl mx-auto">

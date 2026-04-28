@@ -1,11 +1,9 @@
-import Header from "@/components/Header";
+import HeaderMain from "@/components/HeaderMain";
 
 export default function ImpressumPage() {
   return (
     <>
-      <Header
-  buttonText="Zur Startseite"
-  buttonLink="/"
+      <HeaderMain
 />
 
       <main className="min-h-screen bg-white text-black px-4 md:px-6 py-12 md:py-20">
