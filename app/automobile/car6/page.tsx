@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default function Car3Page() {
   const images = [
-   "/cars/car6/car6.1.avif",
+    "/cars/car6/car6.1.avif",
     "/cars/car6/car6.2.avif",
     "/cars/car6/car6.3.avif",
     "/cars/car6/car6.4.avif",
@@ -17,13 +17,26 @@ export default function Car3Page() {
     "/cars/car6/car6.11.avif",
     "/cars/car6/car6.12.avif",
     "/cars/car6/car6.13.avif",
-
-    
   ];
 
   const [currentImage, setCurrentImage] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const [showMore, setShowMore] = useState(false);
+  const sliderRef = useRef<HTMLDivElement>(null);
+
+  const scrollLeft = () => {
+    sliderRef.current?.scrollBy({
+      left: -400,
+      behavior: "smooth",
+    });
+  };
+
+  const scrollRight = () => {
+    sliderRef.current?.scrollBy({
+      left: 400,
+      behavior: "smooth",
+    });
+  };
 
   const prevImage = () => {
     setCurrentImage((prev) => (prev === 0 ? images.length - 1 : prev - 1));
@@ -81,7 +94,7 @@ export default function Car3Page() {
                 <div className="relative group">
                   <img
                     src={images[currentImage]}
-                    alt="Opel Zafira Life"
+                    alt="Citroën C3"
                     className="w-full h-[320px] sm:h-[420px] lg:h-[520px] object-cover cursor-pointer"
                     onClick={() => setIsOpen(true)}
                   />
@@ -105,28 +118,49 @@ export default function Car3Page() {
                   </button>
                 </div>
 
-               <div className="relative p-4">
-  <div className="flex gap-3 overflow-x-auto scroll-smooth no-scrollbar">
-    {images.map((image, index) => (
-      <button
-        key={index}
-        type="button"
-        onClick={() => setCurrentImage(index)}
-        className={`flex-shrink-0 rounded-2xl overflow-hidden border-2 transition ${
-          currentImage === index
-            ? "border-red-600"
-            : "border-transparent hover:border-red-300"
-        }`}
-      >
-        <img
-          src={image}
-          alt={`Citroën C3 ${index + 1}`}
-          className="w-[140px] h-[90px] md:w-[160px] md:h-[100px] object-cover"
-        />
-      </button>
-    ))}
-  </div>
-</div>
+                <div className="relative p-4">
+                  <button
+                    type="button"
+                    onClick={scrollLeft}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center text-xl font-bold hover:shadow-xl transition"
+                    aria-label="Nach links scrollen"
+                  >
+                    ‹
+                  </button>
+
+                  <div
+                    ref={sliderRef}
+                    className="flex gap-3 overflow-x-auto scroll-smooth no-scrollbar px-14"
+                  >
+                    {images.map((image, index) => (
+                      <button
+                        key={index}
+                        type="button"
+                        onClick={() => setCurrentImage(index)}
+                        className={`flex-shrink-0 rounded-2xl overflow-hidden border-2 transition ${
+                          currentImage === index
+                            ? "border-red-600"
+                            : "border-transparent hover:border-red-300"
+                        }`}
+                      >
+                        <img
+                          src={image}
+                          alt={`Citroën C3 ${index + 1}`}
+                          className="w-[140px] h-[90px] md:w-[160px] md:h-[100px] object-cover"
+                        />
+                      </button>
+                    ))}
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={scrollRight}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center text-xl font-bold hover:shadow-xl transition"
+                    aria-label="Nach rechts scrollen"
+                  >
+                    ›
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -135,29 +169,31 @@ export default function Car3Page() {
                 <h1 className="text-3xl md:text-4xl font-bold text-black">
                   Citroën C3
                 </h1>
-               <p className="text-gray-500 text-lg md:text-xl mt-2">Tendance</p>
+                <p className="text-gray-500 text-lg md:text-xl mt-2">
+                  Tendance
+                </p>
 
-<p className="text-red-600 text-3xl md:text-4xl font-bold mt-8">
-  5.950 €
-</p>
+                <p className="text-red-600 text-3xl md:text-4xl font-bold mt-8">
+                  5.950 €
+                </p>
 
-<div className="space-y-4 mt-8 text-gray-700">
-  <p>
-    <strong>Kilometerstand:</strong> 57.000 km
-  </p>
-  <p>
-    <strong>Erstzulassung:</strong> 06/2010
-  </p>
-  <p>
-    <strong>Kraftstoff:</strong> Benzin
-  </p>
-  <p>
-    <strong>Getriebe:</strong> Schaltgetriebe
-  </p>
-  <p>
-    <strong>Leistung:</strong> 70 kW (95 PS)
-  </p>
-</div>
+                <div className="space-y-4 mt-8 text-gray-700">
+                  <p>
+                    <strong>Kilometerstand:</strong> 57.000 km
+                  </p>
+                  <p>
+                    <strong>Erstzulassung:</strong> 06/2010
+                  </p>
+                  <p>
+                    <strong>Kraftstoff:</strong> Benzin
+                  </p>
+                  <p>
+                    <strong>Getriebe:</strong> Schaltgetriebe
+                  </p>
+                  <p>
+                    <strong>Leistung:</strong> 70 kW (95 PS)
+                  </p>
+                </div>
 
                 <a
                   href="tel:+4915203799152"
@@ -183,59 +219,46 @@ export default function Car3Page() {
               Ausstattung & Beschreibung
             </h2>
 
-  <p className="text-gray-600 mt-5 md:mt-6 text-base md:text-lg leading-relaxed">
-  Gepflegter Citroën C3 Tendance mit sparsamem Benzinmotor, niedrigem
-  Kilometerstand und zuverlässiger Ausstattung. Das Fahrzeug ist technisch in
-  gutem Zustand, geprüft und sofort verfügbar. Ideal als Stadtfahrzeug,
-  Fahranfängerauto oder günstiger Alltagswagen.
-</p>
+            <p className="text-gray-600 mt-5 md:mt-6 text-base md:text-lg leading-relaxed">
+              Gepflegter Citroën C3 Tendance mit sparsamem Benzinmotor, niedrigem
+              Kilometerstand und zuverlässiger Ausstattung. Das Fahrzeug ist technisch in
+              gutem Zustand, geprüft und sofort verfügbar. Ideal als Stadtfahrzeug,
+              Fahranfängerauto oder günstiger Alltagswagen.
+            </p>
 
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mt-8 md:mt-10 text-gray-700">
+              <p>• Klimaanlage</p>
+              <p>• Panorama-Dach</p>
+              <p>• Bordcomputer</p>
+              <p>• Elektrische Fensterheber</p>
+              <p>• ISOFIX Kindersitzbefestigung</p>
+              <p>• Leichtmetallfelgen</p>
+              <p>• Lederlenkrad</p>
+              <p>• Nebelscheinwerfer</p>
+              <p>• Zentralverriegelung</p>
+              <p>• Nichtraucher-Fahrzeug</p>
 
-
-
-
-<div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mt-8 md:mt-10 text-gray-700">
-  <p>• Klimaanlage</p>
-  <p>• Panorama-Dach</p>
-  <p>• Bordcomputer</p>
-  <p>• Elektrische Fensterheber</p>
-  <p>• ISOFIX Kindersitzbefestigung</p>
-  <p>• Leichtmetallfelgen</p>
-  <p>• Lederlenkrad</p>
-  <p>• Nebelscheinwerfer</p>
-  <p>• Zentralverriegelung</p>
-  <p>• Nichtraucher-Fahrzeug</p>
-
-  {showMore && (
-    <>
-      <p>• ABS / ESP</p>
-      <p>• Front- und Seiten-Airbags</p>
-      <p>• Frontantrieb</p>
-      <p>• Servolenkung</p>
-      <p>• Sommerreifen</p>
-      <p>• Winterreifen</p>
-      <p>• Stahlfelgen</p>
-      <p>• Metallic-Lackierung</p>
-      <p>• City-Paket</p>
-      <p>• Garantie</p>
-      <p>• Inspektion neu</p>
-      <p>• HU Neu</p>
-      <p>• Euro 5</p>
-      <p>• 2 Fahrzeughalter</p>
-      <p>• Anhängelast gebremst: 1.150 kg</p>
-      <p>• Anhängelast ungebremst: 570 kg</p>
-    </>
-  )}
-</div>
-
-
-
-
-
-
-
-
-
+              {showMore && (
+                <>
+                  <p>• ABS / ESP</p>
+                  <p>• Front- und Seiten-Airbags</p>
+                  <p>• Frontantrieb</p>
+                  <p>• Servolenkung</p>
+                  <p>• Sommerreifen</p>
+                  <p>• Winterreifen</p>
+                  <p>• Stahlfelgen</p>
+                  <p>• Metallic-Lackierung</p>
+                  <p>• City-Paket</p>
+                  <p>• Garantie</p>
+                  <p>• Inspektion neu</p>
+                  <p>• HU Neu</p>
+                  <p>• Euro 5</p>
+                  <p>• 2 Fahrzeughalter</p>
+                  <p>• Anhängelast gebremst: 1.150 kg</p>
+                  <p>• Anhängelast ungebremst: 570 kg</p>
+                </>
+              )}
+            </div>
 
             <div className="mt-10">
               <button
@@ -252,7 +275,9 @@ export default function Car3Page() {
         <footer className="bg-gray-100 border-t border-gray-200 py-16 md:py-20 px-4 md:px-6 mt-20 md:mt-24">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
             <div>
-              <h3 className="text-2xl font-bold text-red-600 mb-5">Adresse</h3>
+              <h3 className="text-2xl font-bold text-red-600 mb-5">
+                Adresse
+              </h3>
               <p className="text-gray-700 leading-relaxed">
                 Nabil Car Nordhorn
                 <br />
@@ -263,7 +288,9 @@ export default function Car3Page() {
             </div>
 
             <div>
-              <h3 className="text-2xl font-bold text-red-600 mb-5">Telefon</h3>
+              <h3 className="text-2xl font-bold text-red-600 mb-5">
+                Telefon
+              </h3>
               <p className="text-gray-700 leading-relaxed">
                 Tel.: +49 1520 3799152
                 <br />
@@ -311,7 +338,7 @@ export default function Car3Page() {
       </main>
 
       {isOpen && (
-        <div className="fixed inset-0 z-[999] bg-black/95 flex items-center justify-center">
+        <div className="fixed inset-0 z-[999] bg-black/95 flex flex-col items-center justify-center p-4">
           <button
             type="button"
             onClick={() => setIsOpen(false)}
@@ -321,29 +348,54 @@ export default function Car3Page() {
             ×
           </button>
 
-          <button
-            type="button"
-            onClick={prevImage}
-            className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 bg-white/85 hover:bg-white text-black w-12 h-12 md:w-14 md:h-14 rounded-full shadow-lg flex items-center justify-center text-2xl font-bold transition"
-            aria-label="Vorheriges Bild"
-          >
-            ←
-          </button>
+          <div className="relative flex items-center justify-center w-full flex-1">
+            <button
+              type="button"
+              onClick={prevImage}
+              className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 bg-white/85 hover:bg-white text-black w-12 h-12 md:w-14 md:h-14 rounded-full shadow-lg flex items-center justify-center text-2xl font-bold transition"
+              aria-label="Vorheriges Bild"
+            >
+              ←
+            </button>
 
-          <img
-            src={images[currentImage]}
-            alt="Ford Kuga groß"
-            className="max-w-[92vw] max-h-[88vh] object-contain rounded-2xl shadow-2xl"
-          />
+            <img
+              src={images[currentImage]}
+              alt="Citroën C3 groß"
+              className="max-w-[92vw] max-h-[76vh] object-contain rounded-2xl shadow-2xl"
+            />
 
-          <button
-            type="button"
-            onClick={nextImage}
-            className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 bg-white/85 hover:bg-white text-black w-12 h-12 md:w-14 md:h-14 rounded-full shadow-lg flex items-center justify-center text-2xl font-bold transition"
-            aria-label="Nächstes Bild"
-          >
-            →
-          </button>
+            <button
+              type="button"
+              onClick={nextImage}
+              className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 bg-white/85 hover:bg-white text-black w-12 h-12 md:w-14 md:h-14 rounded-full shadow-lg flex items-center justify-center text-2xl font-bold transition"
+              aria-label="Nächstes Bild"
+            >
+              →
+            </button>
+          </div>
+
+          <div className="w-full max-w-6xl mt-4 overflow-x-auto pb-2">
+            <div className="flex gap-3 justify-start md:justify-center min-w-max px-1">
+              {images.map((image, index) => (
+                <button
+                  key={index}
+                  type="button"
+                  onClick={() => setCurrentImage(index)}
+                  className={`flex-shrink-0 rounded-2xl overflow-hidden border-2 transition ${
+                    currentImage === index
+                      ? "border-red-600 ring-2 ring-red-600"
+                      : "border-white/20 hover:border-red-300"
+                  }`}
+                >
+                  <img
+                    src={image}
+                    alt={`Citroën C3 ${index + 1}`}
+                    className="w-[88px] h-[60px] md:w-[110px] md:h-[74px] object-cover"
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       )}
     </>
