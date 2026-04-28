@@ -1,4 +1,5 @@
 import HeaderMain from "@/components/HeaderMain";
+import Footer from "@/components/Footer";
 
 export default function ReifenAnfragePage() {
   return (
@@ -149,75 +150,11 @@ export default function ReifenAnfragePage() {
     </form>
   </div>
 
-  {/* Footer */}
-<footer className="bg-gray-100 border-t border-gray-200 py-20 px-6 mt-24">
-  <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-12">
-    <div>
-      <h3 className="text-2xl font-bold text-red-600 mb-6">
-        Adresse
-      </h3>
+<Footer />
 
-      <p className="text-gray-700 leading-relaxed">
-        Nabil Car Nordhorn
-        <br />
-        Gildehauser Weg 16 & 22
-        <br />
-        48529 Nordhorn
-      </p>
-    </div>
 
-    <div>
-      <h3 className="text-2xl font-bold text-red-600 mb-6">
-        Telefon
-      </h3>
 
-      <p className="text-gray-700 leading-relaxed">
-        Tel.: +49 1520 3799152
-        <br />
-        Tel. 2: +49 152 540728
-        <br />
-        Mobil: +49 5921 7123553
-        <br />
-        Fax: +49 5921 784642
-        <br />
-        <br />
-        Mo - Fr: 09:00 – 18:00 Uhr
-      </p>
-    </div>
-
-    <div>
-      <h3 className="text-2xl font-bold text-red-600 mb-6">
-        Informationen
-      </h3>
-
-      <div className="flex flex-col gap-3">
-        <a
-          href="/impressum"
-          className="text-gray-700 hover:text-red-600 transition font-medium"
-        >
-          Impressum
-        </a>
-
-        <a
-          href="/datenschutz"
-          className="text-gray-700 hover:text-red-600 transition font-medium"
-        >
-          Datenschutz
-        </a>
-
-        <a
-          href="/reifen"
-          className="text-gray-700 hover:text-red-600 transition font-medium"
-        >
-          Reifen-Anfrage
-        </a>
-      </div>
-    </div>
-  </div>
-</footer>
 </main>
-
-
 
 
     </>

@@ -1,4 +1,6 @@
 import HeaderMain from "@/components/HeaderMain";
+import Footer from "@/components/Footer";
+
 
 export default function DatenschutzPage() {
   return (
@@ -137,6 +139,7 @@ export default function DatenschutzPage() {
             </a>
           </div>
         </div>
+        <Footer />
       </main>
     </>
   );

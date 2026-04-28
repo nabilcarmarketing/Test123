@@ -1,4 +1,5 @@
 import HeaderMain from "@/components/HeaderMain";
+import Footer from "@/components/Footer";
 
 export default function ImpressumPage() {
   return (
@@ -89,6 +90,8 @@ export default function ImpressumPage() {
             </a>
           </div>
         </div>
+
+        <Footer />
       </main>
     </>
   );

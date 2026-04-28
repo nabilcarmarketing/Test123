@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Footer from "@/components/Footer";
 import HeaderHome from "@/components/HeaderHome";
 
 export default function Home() {
@@ -437,70 +438,8 @@ export default function Home() {
   </div>
 </section>
 
-{/* Kontakt */}
-<section
-  id="kontakt"
-  className="py-16 md:py-20 px-4 md:px-6 bg-white"
->
-  <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 items-start">
-    
-    <div>
-      <h3 className="text-2xl font-bold">
-        Adresse
-      </h3>
 
-      <p className="text-gray-600 mt-4 leading-relaxed">
-        Nabil Car Nordhorn
-        <br />
-        Gildehauser Weg 16 & 22
-        <br />
-        48529 Nordhorn
-      </p>
-    </div>
-
-    <div>
-      <h3 className="text-2xl font-bold">
-        Telefon
-      </h3>
-
-      <p className="text-gray-600 mt-4 leading-relaxed">
-        Tel.: +49 1520 3799152
-        <br />
-        Tel. 2: +49 1725 240728
-        <br />
-        Mobil: +49 5921 7123553
-        <br />
-        Fax: +49 5921 784642
-        <br />
-        <br />
-        Mo - Fr: 09:00 - 18:00 Uhr
-      </p>
-    </div>
-
-    <div>
-      <h3 className="text-2xl font-bold">
-        Informationen
-      </h3>
-
-      <div className="mt-4 flex flex-col gap-3">
-        <a
-          href="/impressum"
-          className="text-gray-700 hover:text-red-600 transition font-medium"
-        >
-          Impressum
-        </a>
-
-        <a
-          href="/datenschutz"
-          className="text-gray-700 hover:text-red-600 transition font-medium"
-        >
-          Datenschutz
-        </a>
-      </div>
-    </div>
-
-  </div>
-</section>
+<Footer />
     </main>
   );
 }
