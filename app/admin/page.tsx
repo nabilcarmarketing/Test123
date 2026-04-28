@@ -51,7 +51,7 @@ export default function AdminPage() {
       const fileName = `${Date.now()}-${file.name}`;
 
       const { error: uploadError } = await supabase.storage
-        .from("car_images")
+        .from("Car.Images")
         .upload(fileName, file);
 
       if (uploadError) {
@@ -60,7 +60,7 @@ export default function AdminPage() {
       }
 
       const { data: publicData } = supabase.storage
-        .from("car_images")
+        .from("Car.Images")
         .getPublicUrl(fileName);
 
       const { error: imageInsertError } = await supabase
