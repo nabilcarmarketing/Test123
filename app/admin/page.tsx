@@ -80,40 +80,46 @@ export default function AdminPage() {
     }
   };
 
-  const addCar = async () => {
-    if (!newCar.title || !newCar.price) return;
+const addCar = async () => {
+  if (!newCar.title || !newCar.price) {
+    console.log("Pflichtfelder fehlen");
+    return;
+  }
 
-    const { data, error } = await supabase
-      .from("cars")
-      .insert([
-        {
-          title: newCar.title,
-          subtitle: newCar.subtitle,
-          price: newCar.price,
-          mileage: newCar.mileage,
-          first_registration: newCar.first_registration,
-          fuel: newCar.fuel,
-          transmission: newCar.transmission,
-          power: newCar.power,
-          equipment: newCar.equipment,
-          description: newCar.description,
-          status: newCar.status,
-        },
-      ])
-      .select()
-      .single();
+  const { data, error } = await supabase
+    .from("cars")
+    .insert([
+      {
+        title: newCar.title,
+        subtitle: newCar.subtitle,
+        price: newCar.price,
+        mileage: newCar.mileage,
+        first_registration: newCar.first_registration,
+        fuel: newCar.fuel,
+        transmission: newCar.transmission,
+        power: newCar.power,
+        equipment: newCar.equipment,
+        description: newCar.description,
+        status: newCar.status,
+      },
+    ])
+    .select()
+    .single();
 
-    if (error) {
-      console.log("CAR INSERT ERROR:", error);
-      return;
-    }
+  console.log("CAR DATA:", data);
+  console.log("CAR ERROR:", error);
 
-    if (data?.id) {
-      console.log("CAR CREATED:", data.id);
-      await uploadImages(data.id);
-    } else {
-      console.log("NO CAR ID RETURNED");
-    }
+  if (error) {
+    console.log("CAR INSERT ERROR:", error);
+    return;
+  }
+
+  if (data?.id) {
+    console.log("CAR CREATED:", data.id);
+    await uploadImages(data.id);
+  } else {
+    console.log("NO CAR ID RETURNED");
+  }
 
     setNewCar({
       title: "",
