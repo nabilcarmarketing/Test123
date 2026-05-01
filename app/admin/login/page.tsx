@@ -15,20 +15,20 @@ export default function AdminLoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const login = async () => {
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
+const login = async () => {
+  const { error } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  });
 
-    if (error) {
-      alert("Login fehlgesch lagen");
-      console.log(error);
-      return;
-    }
+  if (error) {
+    alert(error.message);
+    return;
+  }
 
-    router.push("/admin");
-  };
+  // WICHTIG: Client redirect + Hard Reload
+  window.location.assign("/admin");
+};
 
   return (
   <>
@@ -67,12 +67,15 @@ export default function AdminLoginPage() {
             />
           </div>
 
-          <Button
-            onClick={login}
-            className="w-full rounded-xl py-3 font-semibold"
-          >
-            Einloggen
-          </Button>
+<Button
+  onClick={() => {
+    console.log("CLICKED");
+    login();
+  }}
+>
+  Einloggen
+</Button>
+
         </CardContent>
       </Card>
      </main>

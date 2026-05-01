@@ -30,15 +30,36 @@ export default function AdminPage() {
     featured: false,
     sold: false,
   });
+  
+useEffect(() => {
+  const checkSession = async () => {
+    const { data } = await supabase.auth.getSession();
+
+    if (!data.session) {
+      window.location.replace("/admin/login");
+    }
+  };
+
+  checkSession();
+}, []);
 
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [previewImage, setPreviewImage] = useState<string | null>(null);
   const [editingCarId, setEditingCarId] = useState<number | null>(null);
 
-  const logout = async () => {
-    await supabase.auth.signOut();
-    router.push("/admin/login");
-  };
+const logout = async () => {
+  await supabase.auth.signOut();
+
+  // ALLE Cookies brutal löschen
+  document.cookie.split(";").forEach((c) => {
+    document.cookie = c
+      .replace(/^ +/, "")
+      .replace(/=.*/, "=;expires=" + new Date(0).toUTCString() + ";path=/");
+  });
+
+  // kompletter Reload
+  window.location.replace("/admin/login");
+};
 
   const fetchCars = async () => {
     const { data, error } = await supabase
