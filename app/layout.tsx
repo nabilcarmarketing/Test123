@@ -14,10 +14,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nabil Car Nordhorn",
-  description: "Gebrauchtwagenhandel in Nordhorn",
+  title: {
+    default: "Nabil Car Nordhorn",
+    template: "%s | Nabil Car Nordhorn",
+  },
+  description:
+    "Gebrauchtwagen, An- und Verkauf von Fahrzeugen in Nordhorn. Transparente Angebote und persönliche Beratung.",
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{
