@@ -122,7 +122,52 @@ export default function DatenschutzPage() {
                 Werbung und Informationsmaterialien wird hiermit widersprochen.
               </p>
             </section>
-          </div>
+          
+
+          <section className="bg-gray-50 rounded-3xl border border-gray-200 p-6 md:p-8 shadow-sm">
+  <h2 className="text-2xl font-semibold mb-4">
+    8. Hosting
+  </h2>
+  <p className="text-gray-700 leading-relaxed">
+    Diese Website wird über Vercel bereitgestellt. Beim Besuch der Website
+    können technisch erforderliche Daten wie IP-Adresse, Browserinformationen
+    und Zugriffszeitpunkte verarbeitet werden, um die sichere Bereitstellung
+    und den Betrieb der Website zu gewährleisten.
+  </p>
+</section>
+
+<section className="bg-gray-50 rounded-3xl border border-gray-200 p-6 md:p-8 shadow-sm">
+  <h2 className="text-2xl font-semibold mb-4">
+    9. Google Analytics
+  </h2>
+  <p className="text-gray-700 leading-relaxed">
+    Diese Website nutzt Google Analytics zur Analyse der Nutzung unseres
+    Online-Angebots. Die erfassten Informationen helfen uns dabei, die Website
+    zu verbessern und unser Angebot nutzerfreundlicher zu gestalten.
+  </p>
+</section>
+
+<section className="bg-gray-50 rounded-3xl border border-gray-200 p-6 md:p-8 shadow-sm">
+  <h2 className="text-2xl font-semibold mb-4">
+    10. Technische Dienstleister
+  </h2>
+  <p className="text-gray-700 leading-relaxed">
+    Für die technische Bereitstellung bestimmter Funktionen nutzen wir externe
+    Dienstleister wie Supabase. Dabei können Daten verarbeitet werden, soweit
+    dies für den Betrieb der Website erforderlich ist.
+  </p>
+</section>
+
+<section className="bg-gray-50 rounded-3xl border border-gray-200 p-6 md:p-8 shadow-sm">
+  <h2 className="text-2xl font-semibold mb-4">
+    11. Beschwerderecht
+  </h2>
+  <p className="text-gray-700 leading-relaxed">
+    Sie haben das Recht, sich bei einer Datenschutzaufsichtsbehörde über die
+    Verarbeitung Ihrer personenbezogenen Daten zu beschweren.
+  </p>
+</section>
+</div>
 
           <div className="mt-12 flex flex-col sm:flex-row gap-4">
             <a

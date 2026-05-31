@@ -345,25 +345,27 @@ const handleEdit = (car: any) => {
                 ))}
               </div>
 
-              <div className="space-y-2">
-                <Label>Ausstattung</Label>
-                <Input
-                  value={newCar.equipment}
-                  onChange={(e) =>
-                    setNewCar({ ...newCar, equipment: e.target.value })
-                  }
-                />
-              </div>
+<div className="space-y-2">
+  <Label>Ausstattung</Label>
+  <textarea
+    className="w-full min-h-[150px] rounded-md border border-input bg-background px-3 py-2 text-sm resize-y"
+    value={newCar.equipment}
+    onChange={(e) =>
+      setNewCar({ ...newCar, equipment: e.target.value })
+    }
+  />
+</div>
 
-              <div className="space-y-2">
-                <Label>Beschreibung</Label>
-                <Input
-                  value={newCar.description}
-                  onChange={(e) =>
-                    setNewCar({ ...newCar, description: e.target.value })
-                  }
-                />
-              </div>
+<div className="space-y-2">
+  <Label>Beschreibung</Label>
+  <textarea
+    className="w-full min-h-[200px] rounded-md border border-input bg-background px-3 py-2 text-sm resize-y"
+    value={newCar.description}
+    onChange={(e) =>
+      setNewCar({ ...newCar, description: e.target.value })
+    }
+  />
+  </div>
 
               <div className="space-y-2">
                 <Label>Fahrzeugbilder (mehrere möglich)</Label>

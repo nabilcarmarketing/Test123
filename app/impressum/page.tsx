@@ -58,7 +58,7 @@ export default function ImpressumPage() {
 
             <section className="bg-gray-50 rounded-3xl border border-gray-200 p-6 md:p-8 shadow-sm">
               <h2 className="text-2xl font-semibold mb-4">
-                Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
+                Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
               </h2>
               <p className="text-gray-700 leading-relaxed">
                 Nabil Mislim
