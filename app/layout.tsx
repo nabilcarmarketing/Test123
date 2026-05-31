@@ -14,18 +14,28 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://nabilcar.de"),
+
   title: {
     default: "Nabil Car Nordhorn",
     template: "%s | Nabil Car Nordhorn",
   },
+
   description:
     "Gebrauchtwagen, An- und Verkauf von Fahrzeugen in Nordhorn. Transparente Angebote und persönliche Beratung.",
+
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
 };
+
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html
       lang="de"
@@ -36,12 +46,12 @@ export default function RootLayout({
           src="https://www.googletagmanager.com/gtag/js?id=G-RBNRPRP291"
           strategy="afterInteractive"
         />
+
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-
             gtag('config', 'G-RBNRPRP291');
           `}
         </Script>
