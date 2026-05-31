@@ -1,16 +1,18 @@
 import { supabaseServer } from "@/lib/supabase-server";
 import CarDetailsClient from "./cardetails";
 
-// 🔹 SEO Meta
+// SEO
 export async function generateMetadata({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
+  const { id } = await params;
+
   const { data: car } = await supabaseServer
     .from("cars")
     .select("*")
-    .eq("id", params.id)
+    .eq("id", Number(id))
     .single();
 
   if (!car) {
@@ -22,9 +24,8 @@ export async function generateMetadata({
   const { data: images } = await supabaseServer
     .from("car_images")
     .select("image_url")
-    .eq("car_id", params.id)
+    .eq("car_id", Number(id))
     .limit(1);
-
 
   return {
     title: `${car.title} kaufen | Nabil Car Nordhorn`,
@@ -40,22 +41,37 @@ export async function generateMetadata({
   };
 }
 
-// 🔹 Page (Server Component)
+// Page
 export default async function Page({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const { data: car } = await supabaseServer
+  const { id } = await params;
+
+  console.log("ID:", id);
+
+  const { data: car, error } = await supabaseServer
     .from("cars")
     .select("*")
-    .eq("id", params.id)
+    .eq("id", Number(id))
     .single();
+
+  console.log("CAR:", car);
+  console.log("ERROR:", error);
+
+  if (!car) {
+    return (
+      <div className="p-10 text-center">
+        Fahrzeug nicht gefunden
+      </div>
+    );
+  }
 
   const { data: images } = await supabaseServer
     .from("car_images")
     .select("image_url")
-    .eq("car_id", params.id);
+    .eq("car_id", Number(id));
 
   return (
     <CarDetailsClient
